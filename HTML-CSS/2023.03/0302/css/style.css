@@ -1,0 +1,46 @@
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  font-family: Pretendard-Regular, Verdana, sans-serif;
+}
+
+section > * {
+  color: royalblue;
+}
+
+[type="button"] {
+  border: 0;
+  cursor: pointer;
+}
+
+[class^="btn"] {
+  color: #fff;
+  background: royalblue;
+}
+
+p {
+  background-color: darkkhaki;
+}
+
+.ex1 span {
+  display: inline-block;
+}
+.ex2 span {
+  display: block;
+}
+
+@media (max-width: 1000px) {
+  .ex2 span {
+    display: inline;
+  }
+}
+
+.ko {
+  word-break: keep-all;
+}
