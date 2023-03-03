@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>border-radius</title>
+    <style>
+      [class^="border"] {
+        background-color: coral;
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+      }
+
+      .border1 {
+        border-radius: 50%;
+      }
+      .border2 {
+        border-radius: 10%;
+      }
+      .border3 {
+        /* border-radius: 100px 0 0 0; */
+        border-top-left-radius: 100px;
+      }
+      .border4 {
+        /* border-radius: 100px  0; */
+        border-top-left-radius: 100px;
+        border-bottom-right-radius: 100px;
+      }
+      .border5 {
+        /* border-radius: 0 50px */
+        border-top-right-radius: 50%;
+        border-bottom-left-radius: 50%;
+      }
+      .border6 {
+        height: 50px;
+        border-radius: 100px 100px 0 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="border1"></div>
+    <div class="border2"></div>
+    <div class="border3"></div>
+    <div class="border4"></div>
+    <div class="border5"></div>
+    <div class="border6"></div>
+  </body>
+</html>

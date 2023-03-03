@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "InkLipquid";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/InkLipquid.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: Pretendard-Regular, "Times New Roman", Dotum, "돋움", sans-serif;
+  text-align: center;
+}
+
+h1 {
+  font-family: "InkLipquid", "Times New Roman", Dotum, "돋움", sans-serif;
+}
+
+img {
+  width: 768px;
+  height: 630px;
+}
+
+.underline {
+  text-decoration: underline;
+  text-decoration-thickness: 8px;
+  text-underline-offset: -5px;
+  text-decoration-color: rgba(255, 228, 181, 0.8);
+  z-index: 99;
+}
+
+.p-en {
+  font-style: italic;
+  color: Gray;
+}
