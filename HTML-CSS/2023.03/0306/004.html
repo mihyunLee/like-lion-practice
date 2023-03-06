@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>image</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      .wrap {
+        background: gold;
+      }
+
+      .wrap img {
+        vertical-align: top;
+      }
+
+      .ratio {
+        width: 300px;
+        aspect-ratio: 288 / 196;
+        object-fit: cover;
+      }
+
+      .padding-ratio {
+        position: relative;
+        height: 0;
+        padding-top: 50%;
+        overflow: hidden;
+      }
+
+      .padding-ratio img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div>안녕하세요</div>
+
+    <!-- 이미지를 설명하는 텍스트가 존재할 경우, alt 속성은 꼭 넣고, 값을 빈 값으로! -->
+    <img src="123123.jpg" alt="" />
+    <p>프론트엔드 개발</p>
+
+    <div class="wrap">
+      <img class="ratio" src="img/weniv-chilli.png" alt="위니브 캐릭터 칠리" />
+      안녕하세요
+    </div>
+
+    <img class="ratio" src="img/weniv-garry.png" usemap="#image-map" />
+
+    <map name="image-map">
+      <area
+        target="_blank"
+        alt="naver"
+        title="naver"
+        href="https://www.naver.com/"
+        coords="137,101,129,99,118,103,105,120,97,132,97,146,108,160,135,171,161,173,179,170,192,162,205,156,209,142,207,131,197,114,190,104,179,100"
+        shape="poly"
+      />
+    </map>
+
+    <figure>
+      <img class="ratio" src="img/weniv-licat.png" alt="위니브 캐릭터 라이캣" />
+      <figcaption>웃고있는 라이캣</figcaption>
+    </figure>
+
+    <img class="ratio" src="img/weniv-binky.png" alt="위니브 캐릭터 빙키" />
+
+    <div class="padding-ratio">
+      <img src="img/weniv-suri.png" alt="위니브 캐릭터 수리" />
+    </div>
+  </body>
+</html>

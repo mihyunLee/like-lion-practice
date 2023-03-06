@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>박스 꾸미기</title>
+    <style>
+      div {
+        width: 150px;
+        height: 70px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* div ~ div와 동일한 동작 */
+      /* div:not(:first-child) {
+        margin-top: 20px;
+      } */
+
+      div ~ div {
+        margin-top: 20px;
+      }
+
+      div:nth-child(1) {
+        background-color: #343f50;
+        color: #fff;
+        border: 3px solid #000;
+        box-shadow: inset 3px 3px #4a5568;
+      }
+
+      div:nth-child(2) {
+        background: linear-gradient(
+          90deg,
+          rgba(132, 78, 246, 1) 0%,
+          rgba(54, 108, 241, 1) 69%
+        );
+        color: #fff;
+        /* outline은 box-sizing에 포함되지 않음 + focus되지 않음의 문제로
+		background-clip으로 사용하는 것을 권장한다.
+		*/
+        /* outline: 5px dashed #e6d6ff; */
+        border: 5px dashed #e6dfff;
+        border-radius: 50px;
+        background-clip: padding-box;
+      }
+
+      div:nth-child(3) {
+        background-color: #fff;
+        color: #333f46;
+        border: 3px solid rgba(0, 0, 0, 0.1);
+        border-radius: 0px 50px 50px 50px;
+        box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div><h2>Hello🤚</h2></div>
+    <div><h2>Hello🤚</h2></div>
+    <div><h2>Hello🤚</h2></div>
+  </body>
+</html>
