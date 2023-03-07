@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>레이아웃 만들기 - float</title>
+    <style>
+      header {
+        background: skyblue;
+        height: 100px;
+      }
+      section {
+        background: slateblue;
+        float: left;
+        width: 70%;
+        height: 200px;
+      }
+      aside {
+        background: lime;
+        float: right;
+        width: 30%;
+        height: 200px;
+      }
+      footer {
+        background: salmon;
+        height: 100px;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <header>header</header>
+    <section>
+      <article>
+        <p>section &gt; article</p>
+      </article>
+    </section>
+    <aside>aside</aside>
+    <footer>footer</footer>
+  </body>
+</html>

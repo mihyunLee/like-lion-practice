@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flex</title>
+    <style>
+      .flex-container {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+      }
+
+      .column {
+        flex-direction: column;
+      }
+
+      .flex-item {
+        background: rosybrown;
+        border: 3px solid royalblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="flex-item">아이템1</div>
+      <div class="flex-item">아이템2</div>
+      <div class="flex-item">아이템3</div>
+      <div class="flex-item">아이템4</div>
+      <div class="flex-item">아이템5</div>
+    </div>
+    <div class="flex-container column">
+      <div class="flex-item">아이템1</div>
+      <div class="flex-item">아이템2</div>
+      <div class="flex-item">아이템3</div>
+      <div class="flex-item">아이템4</div>
+      <div class="flex-item">아이템5</div>
+    </div>
+  </body>
+</html>
