@@ -1,0 +1,74 @@
+@font-face {
+  font-family: "UhBeematsuko";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeematsuko.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: "UhBeematsuko";
+}
+
+body {
+  background: #f5b7b1;
+  font-weight: 700;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.card-container {
+  width: 288px;
+  display: grid;
+  grid-template: 2 / 1;
+
+  margin: 0 auto;
+  background: #ffffff;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+
+  overflow: hidden;
+}
+
+.card-img {
+  height: 196px;
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content {
+  padding: 25px 16px 19px 16px;
+}
+
+.content h2 {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 19px;
+  color: #29363d;
+}
+
+.content p {
+  font-size: 12px;
+  line-height: 20px;
+  color: #5a6a72;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.content a {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 17px;
+  color: #29363d;
+}

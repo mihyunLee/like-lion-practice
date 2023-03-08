@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid</title>
+    <style>
+      .grid-container {
+        display: grid;
+        grid-template-columns: minmax(200px, 300px) minmax(300px, 400px);
+        grid-template-rows: 1fr 1fr;
+      }
+
+      .grid-item {
+        background: skyblue;
+        border: 3px solid royalblue;
+      }
+
+      .grid-item:first-child {
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 1;
+        grid-column-end: 2;
+      }
+      .grid-item:nth-child(2) {
+        grid-row-start: 2;
+        grid-row-end: 4;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        background: salmon;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-item">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit iure
+        consequuntur odit iusto eos, unde iste impedit optio ex adipisci ab
+        soluta cupiditate earum tempora, ipsa a quidem accusantium at!
+      </div>
+      <div class="grid-item">B</div>
+      <div class="grid-item">C</div>
+      <div class="grid-item">D</div>
+    </div>
+  </body>
+</html>
