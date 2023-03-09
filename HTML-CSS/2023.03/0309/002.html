@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>min() / max()</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .max-width {
+        background: royalblue;
+        height: 100px;
+        /* width: 1400px;
+        max-width: calc(100% - 60px); */
+        width: min(1400px, calc(100% - 60px));
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="max-width">콘텐츠</div>
+  </body>
+</html>

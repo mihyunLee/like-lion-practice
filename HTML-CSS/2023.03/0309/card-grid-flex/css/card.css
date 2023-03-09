@@ -1,0 +1,147 @@
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  font-family: "Pretendard-Regular";
+}
+
+body {
+  background: #e9a3a1;
+}
+
+.card-wrap {
+  background: #ffffff;
+
+  /* flex를 사용할 때 해당 마진 값이 있어서
+	아이템이 총 5개일 때 컨테이너 한 줄에 4개의 아이템이 있다면
+	다음줄에 남은 1개의 아이템에 마진 auto가 적용되어 가운데에 위치하는 문제가 있었다.
+	*/
+  /* margin: 10px auto; */
+
+  width: 288px;
+
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+
+  overflow: hidden;
+}
+
+.content {
+  padding: 0px 16px 16px 16px;
+}
+
+.content header {
+  margin-bottom: 12px;
+  color: #29363d;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.content p {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  font-size: 12px;
+  line-height: 20px;
+  color: #5a6a72;
+
+  margin-bottom: 19px;
+  height: 40px;
+}
+
+.card-img {
+  width: 100%;
+
+  object-fit: cover;
+  aspect-ratio: 288 / 196;
+
+  margin-bottom: 25px;
+}
+
+header {
+  font-weight: 700;
+}
+
+a {
+  font-size: 14px;
+  font-weight: 700;
+  color: #29363d;
+}
+
+/* -- grid 적용 -- */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
+  gap: 32px 24px;
+
+  margin: auto;
+  width: min(1224px, calc(100% - 60px));
+}
+
+/* -- flex 적용  */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px 24px;
+  margin: auto;
+
+  width: min(1224px, calc(100% - 60px));
+}
+
+/* .card-wrap {
+  width: 288px;
+} */
+
+/* flex로 grid를 구현하면 flex-item이 비워지는
+여백이 생기기 때문에 미디어 쿼리가 필요하다. */
+.flex-container article {
+  width: calc((100% - (24px * 3)) / 4);
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .flex-container article {
+    width: calc((100% - (24px * 2)) / 3);
+  }
+}
+@media (min-width: 501px) and (max-width: 640px) {
+  .flex-container article {
+    width: calc((100% - 24px) / 2);
+  }
+}
+@media (max-width: 500px) {
+  .flex-container article {
+    width: 100%;
+  }
+}
+
+/* -- 미디어 쿼리 작성 방법 2 -- */
+/* @media (min-width: 499px) {
+  .flex-container article {
+    width: 100%;
+  }
+}
+
+@media (min-width: 500px) {
+  .flex-container article {
+    width: calc((100% - 24px) / 2);
+  }
+}
+@media (min-width: 640px) {
+  .flex-container article {
+    width: calc((100% - (24px * 2)) / 3);
+  }
+}
+@media (min-width: 1024px) {
+  .flex-container article {
+    width: calc((100% - (24px * 3)) / 4);
+  }
+} */

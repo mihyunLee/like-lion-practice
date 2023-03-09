@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>calc()</title>
+    <style>
+      .wrap {
+        background: royalblue;
+        height: 100px;
+        width: 1400px;
+        margin: auto; /* 가운데 정렬 */
+        /* 창을 줄였을 때 잘리지 않음! */
+        /* max-width: 100%; */
+        /* 양 쪽에 80px을 뺀 값 만큼 마진이 생긴다.*/
+        max-width: calc(100% - 80px);
+      }
+
+      /* float 방법 */
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .float {
+        overflow: hidden;
+      }
+
+      .float li {
+        float: left;
+        background: gold;
+        width: calc((100% - (24px * 2)) / 3);
+      }
+
+      li:not(:first-child) {
+        margin-left: 24px;
+      }
+
+      /* flex 방법 */
+      .flex {
+        display: flex;
+        gap: 24px;
+        /* float의 overflow:hidden 대신 사용할 수 있다. */
+        /* clear: both */
+      }
+
+      .flex li {
+        background: gold;
+        flex-grow: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">contents</div>
+    <ul class="float">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <ul class="flex">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+  </body>
+</html>
