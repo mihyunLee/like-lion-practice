@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>button</title>
+    <style>
+      @font-face {
+        font-family: "Pretendard-Regular";
+        src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+          format("woff");
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      [class^="btn"] {
+        width: 88px;
+        height: 32px;
+
+        background: #343f50;
+        border: 1px solid #1a202c;
+
+        font-family: "Pretendard-Regular";
+        font-weight: 700;
+        color: #cbd5df;
+
+        box-shadow: inset 1px 1px #4a5568;
+      }
+
+      .btn:disabled {
+        box-shadow: none;
+        color: #4a5568;
+      }
+
+      [class^="btn"]:not(:disabled):hover {
+        color: #ffffff;
+        text-decoration: underline;
+      }
+
+      [class^="btn"]:active {
+        box-shadow: inset 1px 1px #262f3e;
+      }
+
+      [class^="btn"]:focus {
+        color: #ffffff;
+        text-decoration: underline;
+      }
+
+      .btn-positive {
+        color: #439aff;
+      }
+
+      .btn-positive:hover,
+      .btn-positive:active {
+        background-color: #439aff;
+        border: 1px solid #439aff;
+      }
+
+      .btn-positive:hover {
+        box-shadow: inset 1px 1px #73b4ff;
+      }
+
+      .btn-positive:active {
+        box-shadow: inset 1px 1px #3b78be;
+      }
+
+      .btn-negative {
+        color: #eb5757;
+      }
+
+      .btn-negative:hover,
+      .btn-negative:active {
+        background-color: #eb5757;
+        border: 1px solid #eb5757;
+      }
+
+      .btn-negative:hover {
+        box-shadow: inset 1px 1px #fd6f6f;
+      }
+
+      .btn-negative:active {
+        box-shadow: inset 1px 1px #d94242;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" class="btn">Button</button>
+    <button type="button" class="btn-positive">Yes</button>
+    <button type="button" class="btn-negative">Del</button>
+    <button type="button" class="btn" disabled>Button</button>
+  </body>
+</html>
