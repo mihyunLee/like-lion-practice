@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iframe</title>
+    <style>
+      iframe {
+        width: 100%;
+        /* width: 100% 로만 지정하면 기존의 높이에 width만 늘어나서
+				영상의 비율이 좋지 않기 때문에 asepct-ratio 속성으 같이 써준다.
+				*/
+        aspect-ratio: 2 / 1;
+      }
+    </style>
+  </head>
+  <body>
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/z1Jj7Xg-TkU"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  </body>
+</html>
