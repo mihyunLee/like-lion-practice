@@ -10,10 +10,42 @@
   font-family: "Pretendard-Regular";
 }
 
+/* --- reset --- */
 body {
+  margin: 0;
   background: #fffaf0;
 }
 
+/* --- layout --- */
+/* header */
+header {
+  background-color: #fff;
+}
+
+.header-wrap {
+  width: 1224px;
+  margin: auto;
+  padding: 22px 0;
+}
+
+header .btn-logo {
+  height: 75px;
+}
+
+header .btn-join {
+  /* float 사용 시 block 요소가 된다. */
+  float: right;
+}
+
+.btn-join {
+  padding: 1em 1em 1em 2.8em;
+  margin: 10px;
+  text-decoration: none;
+  color: #5a6a72;
+  background: url(../images/icon-join.svg) no-repeat 0.8em center / 2em;
+}
+
+/* --- form ---- */
 .login {
   /* display: flex;
   flex-direction: column;
@@ -23,9 +55,9 @@ body {
   margin: 0 auto;
 }
 
-.login label,
-.login input,
-.login button {
+label,
+input,
+button {
   display: block;
   width: 100%;
   box-sizing: border-box;
@@ -33,26 +65,23 @@ body {
   margin-bottom: 24px;
 }
 
-.login label {
+label {
   font-size: 14px;
   color: #29363d;
   margin-bottom: 8px;
 }
 
-.login input {
-  background: #ffffff;
+input {
   border: none;
-  /* border-bottom: 1px solid #677880; */
   box-shadow: 0 1px 0 0 #677880;
-
   border-radius: 4px 4px 0px 0px;
 
   height: 48px;
   margin-bottom: 24px;
-  padding: 0 10px;
+  padding: 0 16px;
 }
 
-.login input:hover {
+input:hover {
   /* border-color: #2e6ff2;
   border-bottom-width: 2px; */
   box-shadow: 0 2px 0 0 #2e6ff2;
@@ -60,22 +89,27 @@ body {
   transition: box-shadow 0.1s;
 }
 
-.login input:focus {
+input:focus {
   outline: none;
   /* border: 2px solid #2e6ff2; */
   box-shadow: 0 0 0 2px #2e6ff2;
+  border-radius: 4px;
 }
 
-.login button {
+button {
   background: #29363d;
-  border: none;
+  border: 0;
   border-radius: 4px;
 
   height: 48px;
 
   color: #f4f5f5;
+  font-weight: bold;
+  font-size: 16px;
+
+  cursor: pointer;
 }
 
-.login button:disabled {
+button:disabled {
   background-color: #9fa9ae;
 }
