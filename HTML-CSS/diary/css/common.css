@@ -142,12 +142,22 @@ header .btn-join {
   display: inline-block;
 }
 
-.hello::after {
-  content: "|";
-  color: #d8ddde;
-  margin-left: 24px;
-}
-
 .hello strong {
   box-shadow: inset 0 -0.6em rgba(255, 79, 110, 0.5);
+}
+
+@media (min-width: 541px) {
+  .hello::after {
+    content: "|";
+    color: #d8ddde;
+    margin-left: 24px;
+  }
+}
+
+@media (max-width: 540px) {
+  .hello {
+    position: absolute;
+    top: 140px;
+    right: 34px;
+  }
 }
