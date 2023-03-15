@@ -37,41 +37,63 @@ header .btn-join {
   float: right;
 }
 
-.btn-join {
+/* --- button --- */
+/* <a> button */
+.btn-join,
+.btn-login,
+.btn-logout {
+  display: inline-block; /* 어디에 배치해도 레이아웃이 틀어지지 않게 하기 위함 */
   padding: 1em 1em 1em 2.8em;
   margin: 10px;
   text-decoration: none;
   color: #5a6a72;
+}
+
+.btn-join {
   background: url(../images/icon-join.svg) no-repeat 0.8em center / 2em;
 }
 
-/* --- form ---- */
-.login {
-  /* display: flex;
-  flex-direction: column;
-  gap: 24px; */
-
-  width: 392px;
-  margin: 0 auto;
+.btn-login {
+  background: url(../images/icon-login.svg) no-repeat 0.8em center / 2em;
 }
 
-label,
-input,
-button {
+.btn-logout {
+  background: url(../images/icon-logout.svg) no-repeat 0.8em center / 2em;
+}
+
+/* default button */
+.btn-black {
+  display: block;
+  width: 100%;
+  background: #29363d;
+  border: 0;
+  border-radius: 4px;
+
+  height: 48px;
+  padding: 0;
+
+  color: #f4f5f5;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.btn-black:not(:disabled) {
+  cursor: pointer;
+}
+
+.btn-black:disabled {
+  opacity: 0.2;
+}
+
+/* --- form --- */
+.label-style,
+.input-style {
   display: block;
   width: 100%;
   box-sizing: border-box;
-
-  margin-bottom: 24px;
 }
 
-label {
-  font-size: 14px;
-  color: #29363d;
-  margin-bottom: 8px;
-}
-
-input {
+.input-style {
   border: none;
   box-shadow: 0 1px 0 0 #677880;
   border-radius: 4px 4px 0px 0px;
@@ -81,35 +103,19 @@ input {
   padding: 0 16px;
 }
 
-input:hover {
-  /* border-color: #2e6ff2;
-  border-bottom-width: 2px; */
+.input-style:hover {
   box-shadow: 0 2px 0 0 #2e6ff2;
-
   transition: box-shadow 0.1s;
 }
 
-input:focus {
+.input-style:focus {
   outline: none;
-  /* border: 2px solid #2e6ff2; */
   box-shadow: 0 0 0 2px #2e6ff2;
   border-radius: 4px;
 }
 
-button {
-  background: #29363d;
-  border: 0;
-  border-radius: 4px;
-
-  height: 48px;
-
-  color: #f4f5f5;
-  font-weight: bold;
-  font-size: 16px;
-
-  cursor: pointer;
-}
-
-button:disabled {
-  background-color: #9fa9ae;
+.label-style {
+  font-size: 14px;
+  color: #29363d;
+  margin-bottom: 8px;
 }
