@@ -1,0 +1,51 @@
+/* reset */
+h1,
+p {
+  margin: initial;
+}
+
+img {
+  vertical-align: top;
+}
+
+/* Layouts */
+.wrapper {
+  width: 300px;
+  margin: 100px auto;
+}
+
+/* Components */
+body {
+  background-image: url(images/bg.png);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.card {
+}
+
+.card-cover {
+  /* wrapper width가 늘어나도 이미지 요소가 가운데에 위치한다. */
+  margin: 0 auto;
+  display: block;
+}
+
+.card-contents {
+  border-radius: 10px 10px 20px 20px;
+  background-color: #93572e;
+  color: white;
+  background-image: url(images/green.png);
+  background-repeat: repeat-x; /* wrapper의 width가 늘어났을 때를 대비 */
+  padding: 64px 20px 30px 20px;
+  border-bottom: 10px solid #4a260b;
+}
+
+.card-contents h1 {
+  margin-bottom: 10px;
+}
+
+.card-contents p {
+  color: antiquewhite;
+  margin: 1.2em 0; /* 문단이 추가되었을 때 문단 사이의 간격을 대비 */
+}
