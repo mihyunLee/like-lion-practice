@@ -24,8 +24,13 @@ header {
 
 .header-wrap {
   width: 1224px;
+  max-width: calc(100% - 60px);
+  height: 120px;
   margin: auto;
-  padding: 22px 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 header .btn-logo {
@@ -99,7 +104,6 @@ header .btn-join {
   border-radius: 4px 4px 0px 0px;
 
   height: 48px;
-  margin-bottom: 24px;
   padding: 0 16px;
 }
 
