@@ -1,0 +1,152 @@
+@font-face {
+  font-family: "SpoqaHanSansNeo-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: "SpoqaHanSansNeo-Regular";
+}
+
+/* reset */
+h2,
+p {
+  margin: 0;
+  font-weight: 400;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 240px auto auto auto;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-title h2 {
+  font-size: 70px;
+  margin-bottom: 20px;
+}
+
+.main-title p {
+  font-size: 20px;
+}
+
+.content a {
+  display: block;
+  width: 486px;
+  height: 280px;
+
+  border-radius: 20px;
+  text-decoration: none;
+
+  position: relative;
+}
+
+.content p {
+  font-size: 30px;
+  font-weight: 700;
+  color: white;
+  padding: 40px;
+}
+
+.content span {
+  display: block;
+  color: white;
+  padding: 30px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.content span::after {
+  content: ">";
+  padding-left: 4px;
+}
+
+.content .link-it-video {
+  background: url(../images/sample1.png) no-repeat 0 0 / contain;
+  margin-bottom: 20px;
+}
+
+.content .link-it-books {
+  background: url(../images/sample2.png) no-repeat 0 0 / contain;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    justify-content: initial;
+    gap: 60px;
+    width: auto;
+    margin: 0 auto;
+  }
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .main-title {
+    margin-top: 100px;
+  }
+
+  .main-title p {
+    font-size: 18px;
+  }
+
+  .content a {
+    width: 344px;
+    height: 198px;
+    flex-shrink: 0;
+  }
+
+  .content p {
+    font-size: 24px;
+    padding: 30px;
+  }
+
+  .content span {
+    padding: 20px;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .container {
+    flex-direction: column;
+    justify-content: initial;
+    gap: 60px;
+    width: auto;
+    margin: 0 auto;
+  }
+
+  .main-title h2 {
+    font-size: 36px;
+    margin-bottom: 14px;
+  }
+
+  .main-title p {
+    font-size: 14px;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+
+  .content a {
+    width: 356px;
+    height: 205px;
+  }
+
+  .content p {
+    font-size: 20px;
+    padding: 30px;
+  }
+
+  .content span {
+    font-size: 14px;
+    padding: 20px;
+  }
+}
