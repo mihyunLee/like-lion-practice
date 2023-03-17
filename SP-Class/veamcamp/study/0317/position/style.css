@@ -1,0 +1,63 @@
+body:before,
+.grand-father:before,
+.father:before {
+  float: right;
+  color: #999;
+  margin: 10px;
+  font-size: 14px;
+}
+
+body:before {
+  content: "전체 창";
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.grand-father:before {
+  content: "할아부지";
+}
+
+.father:before {
+  content: "아부지";
+}
+
+.grand-father {
+  position: relative;
+}
+
+.father {
+  /* position: relative; */
+}
+
+.children {
+  width: 100px;
+  height: 100px;
+  /* -- img에 위치를 옮기는 방법 -- */
+  /* 방법 1) margin 주기 */
+  /* margin-left: -50px; */
+  /* 방법 2) transform */
+  /* transform: translateX(-50px); */
+  /* 방법 3) position */
+  /* position: absolute;
+  left: -50px;
+  top: 0; */
+
+  /* -- position으로 가운데 정렬하기 -- */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  /* 방법 1) translate */
+  /* transform: translate(-50%, -50%); */
+  /* 방법 2) old: negative-margin */
+  margin-left: -50px;
+  margin-top: -50px;
+}
+
+.pos {
+  background-color: orange;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+}

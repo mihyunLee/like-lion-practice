@@ -1,0 +1,79 @@
+h1,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+/* 절대적인 기준.
+	재사용성을 위한 layout 클래스이다.
+	layout 외에 추가적인 스타일은 주지 않는다.
+*/
+.l_wrapper {
+  width: auto;
+  max-width: 960px;
+  margin: 100px auto;
+}
+
+.section-timeline {
+  margin: 0 -20px;
+  position: relative;
+}
+
+.section-timeline::before {
+  content: " ";
+  background-color: red;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  /* inset: 0; */
+  width: 10px;
+
+  /* height: auto인 상태이기 때문에
+		negative-margin을 주게되면 해당 방향으로
+		크기가 더 늘어나게 된다.
+	*/
+  margin: 40px auto -60px;
+}
+
+.section-timeline li {
+  width: 50%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.section h1 {
+  margin-bottom: 30px;
+}
+
+.section-timeline li:nth-child(even) {
+  margin-left: auto;
+  margin-top: -40px;
+  margin-bottom: -40px;
+}
+
+/* padding이 들어갈 내부 컨텐츠 요소를
+	따로 분리하고 해당 요소를 감싼 부모 요소에
+	box-sizing: border-box를 주면
+	컨텐츠 요소 자체에 padding을 줄 때 편리하다.
+*/
+.year {
+  background-color: orange;
+  padding: 20px;
+  min-height: 100px;
+  border-radius: 40px;
+}
+
+@media (max-width: 800px) {
+  .section-timeline li {
+    width: initial;
+  }
+  .section-timeline li:nth-child(even) {
+    margin: 0;
+  }
+}
