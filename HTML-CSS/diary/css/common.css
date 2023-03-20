@@ -54,6 +54,11 @@ header .btn-join {
 }
 
 /* --- button --- */
+button {
+  cursor: pointer;
+  border: none;
+}
+
 /* <a> button */
 .btn-join,
 .btn-login,
