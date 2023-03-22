@@ -1,0 +1,263 @@
+@font-face {
+  font-family: "SpoqaHanSansNeo-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* reset */
+body,
+h1,
+h2,
+button,
+input,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  font-size: initial;
+  font-weight: initial;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+body {
+  font-family: "SpoqaHanSansNeo-Regular";
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input {
+  padding: 0;
+  font-family: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  color: inherit;
+  font-family: inherit;
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+img {
+  vertical-align: top;
+}
+
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+/* layout ============= */
+
+.wrapper {
+  width: 520px;
+  margin: 20px auto;
+  border: 1px solid #c4c4c4;
+  border-radius: 10px;
+}
+
+.modal {
+  position: relative;
+}
+
+.social-login {
+  padding: 0 24px 24px 25px;
+}
+
+/* style ============== */
+.modal-header {
+  text-align: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #c4c4c4;
+}
+
+/* form */
+.modal-form {
+  margin-top: 26px;
+  margin-bottom: 30px;
+  padding: 0 24px;
+  position: relative;
+}
+
+.form-title {
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+
+/* input */
+.input-user {
+  display: block;
+  width: 100%;
+  height: 50px;
+  padding: 15px 16px;
+  box-sizing: border-box;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.input-user:not(:first-child) {
+  margin-top: 10px;
+}
+
+.input-user::placeholder {
+  color: #767676;
+}
+
+.login-status {
+  margin-top: 17px;
+  margin-bottom: 21px;
+}
+
+.inp-login-status {
+  appearance: none;
+  width: 1.8em;
+  height: 1.8em;
+  background: url(../images/check-box.svg) no-repeat center / 22px;
+  vertical-align: middle;
+  transition: all 0.3s;
+}
+
+.inp-login-status:checked {
+  background-image: url(../images/check-box-checked.svg);
+}
+
+.chk-login-status {
+  color: #767676;
+}
+
+/* button */
+[class^="btn"] {
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+}
+
+.btn-login {
+  background: #2f80ed;
+  color: #fff;
+}
+
+[class^="btn-social"] {
+  border-width: 1px;
+  border-style: solid;
+  background-repeat: no-repeat;
+  background-size: 28px;
+  background-position: 12px center;
+}
+
+.btn-social.google {
+  border-color: #767676;
+  background-image: url(../images/icon-google.svg);
+}
+
+.btn-social.facebook {
+  border-color: #2d9cdb;
+  background-image: url(../images/icon-facebook.svg);
+}
+
+.btn-social.naver {
+  border-color: #00bf18;
+  background-image: url(../images/icon-naver.svg);
+}
+
+.btn-social.kakao {
+  border-color: #f2c94c;
+  background-image: url(../images/icon-kakao.svg);
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px 24px;
+}
+
+.close img {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+
+/* link */
+.modal-link {
+  color: #767676;
+  font-size: 14px;
+  text-align: center;
+}
+
+.link-signup::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 18px;
+  background: #767676;
+  vertical-align: middle;
+  margin: 0 12px;
+}
+
+.social-login {
+  margin-top: 20px;
+  color: #767676;
+}
+
+.social-login li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+/* other */
+.other-login-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+
+  color: #767676;
+  font-size: 14px;
+}
+
+.other-login-text::before,
+.other-login-text::after {
+  content: "";
+  display: inline-block;
+  width: 210px;
+  height: 1px;
+  background: #c4c4c4;
+}
+
+.other-login-text::before {
+  margin-right: 14px;
+}
+
+.other-login-text::after {
+  margin-left: 14px;
+}
+
+/* error */
+.error {
+  box-shadow: 0 0 0 2px #f4492e;
+}
+
+.input-error-msg {
+  font-size: 14px;
+  font-weight: 400;
+  color: #f4492e;
+}

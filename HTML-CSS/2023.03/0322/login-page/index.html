@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>로그인 페이지</title>
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<section class="modal">
+			<h1 class="modal-header">로그인 또는 회원가입</h1>
+			<form action="#" class="modal-form">
+				<h2 class="form-title">위니브에서 여러분의 궁금증을 해결하세요! :&#41;</h2>
+
+				<label class="a11y-hidden" for="user-id">아이디</label>
+				<input class="input-user error" type="text" id="user-id" placeholder="아이디" required>
+				<strong class="input-error-msg">아이디를 입력해 주세요.</strong>
+				<label class="a11y-hidden" for="user-pw">비밀번호</label>
+				<input class="input-user" type="password" id="user-pw" placeholder="비밀번호" required>
+				<strong class="input-error-msg">아이디 혹은 비밀번호가 일치하지 않습니다.</strong>
+				<div class="login-status">
+					<input class="inp-login-status" type="checkbox" id="login-status">
+					<label class="chk-login-status" for="login-status">로그인 상태 유지</label>
+				</div>
+
+				<button class="btn-login" type="submit">로그인</button>
+			</form>
+			<div class="modal-link">
+				<a href="#" class="link-signup">회원가입</a>
+				<a href="#">아이디/비밀번호 찾기</a>
+			</div>
+
+			<span class="other-login-text">또는</span>
+
+			<h2 class="a11y-hidden">소셜 계정으로 로그인</h2>
+			<ul class="social-login">
+				<li>
+					<button class="btn-social google" type="button">구글 계정으로 로그인</button>
+				</li>
+				<li>
+					<button class="btn-social facebook" type="button">페이스북 계정으로 로그인</button>
+				</li>
+				<li>
+					<button class="btn-social naver" type="button">네이버 계정으로 로그인</button>
+				</li>
+				<li>
+					<button class="btn-social kakao" type="button">카카오톡 계정으로 로그인</button>
+				</li>
+			</ul>
+
+			<button type="button" class="close">
+				<img src="./images/icon-close.svg" alt="로그인/회원가입 창 닫기 버튼">
+			</button>
+
+		</section>
+	</div>
+</body>
+
+</html>
