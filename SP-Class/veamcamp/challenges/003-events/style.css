@@ -64,6 +64,8 @@ a {
 /* style */
 .transparent-500 {
   opacity: 0.5;
+  width: 100%;
+  height: 100%;
 }
 
 .soldout-badge {
@@ -89,6 +91,7 @@ a {
 
 .title {
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -121,7 +124,6 @@ a {
   background: orangered;
   color: white;
   font-size: 14px;
-  margin-left: auto;
   padding: 15px 20px;
   border-bottom: 3px solid #b23105;
   border-radius: 5px;
@@ -200,6 +202,7 @@ a {
 .card-title {
   font-size: 30px;
   color: white;
+  word-break: break-all;
 
   position: absolute;
   top: 50%;
@@ -209,6 +212,7 @@ a {
 
 .tag-list {
   display: flex;
+  flex-wrap: wrap;
   gap: 5px;
   margin-bottom: 24px;
 }
@@ -289,7 +293,12 @@ a {
   font-size: 14px;
   color: var(--gray-500);
   padding-top: 32px;
-  padding-bottom: 24px;
+  margin-bottom: 24px;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .card-footer {
@@ -350,16 +359,20 @@ a {
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 960px) {
   .section {
     padding-left: 40px;
     padding-right: 40px;
   }
 
   .card,
-  .card.row {
+  .contents-item:nth-child(even) > .card.row {
     flex-direction: column;
     border-radius: 20px;
     overflow: hidden;
+  }
+
+  .contents-list {
+    flex-direction: column;
   }
 }
