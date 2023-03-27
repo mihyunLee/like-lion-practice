@@ -1,0 +1,40 @@
+@mixin flex($justify: initial, $align: initial, $direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin sizes($width, $height, $radius) {
+  width: $width;
+  height: $height;
+  border-radius: $radius;
+}
+
+.card {
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  @include flex(center, center, null);
+}
+
+.card-item {
+  // width: 100px;
+  // height: 100px;
+  // border-radius: 10%;
+  @include sizes(100px, 100px, 10%);
+}
+
+.product {
+  // display: flex;
+  // justify-content: right;
+  // align-items: right;
+  @include flex(right, right, null);
+}
+
+.product-item {
+  // width: 200px;
+  // height: 200px;
+  // border-radius: 20%;
+  @include sizes(200px, 200px, 20%);
+}

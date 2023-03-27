@@ -1,0 +1,31 @@
+@mixin one {
+  width: 100px;
+  height: 100px;
+  color: white;
+  // content를 사용하면 원하는 위치에 스타일을 추가할 수 있다.
+  @content;
+  border: 1px solid black;
+}
+
+.test1 {
+  @include one;
+}
+
+.test2 {
+  @include one {
+    background-color: red;
+  }
+}
+
+.test3 {
+  @include one {
+    background-color: red;
+    font-size: 32px;
+  }
+}
+
+.test4 {
+  @include one;
+  background-color: red;
+  font-size: 32px;
+}

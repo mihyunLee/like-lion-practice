@@ -1,0 +1,14 @@
+.one {
+  // 지역변수
+  $value: red;
+  color: $value;
+
+  .three {
+    background-color: $value;
+  }
+}
+
+// [!] ERROR: value는 지역 변수이기 때문에 .one 블록 안에서만 사용할 수 있다.
+// .two {
+//   color: $value;
+// }

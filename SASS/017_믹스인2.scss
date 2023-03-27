@@ -1,0 +1,15 @@
+.card {
+  @mixin box {
+    width: 100px;
+    height: 100px;
+  }
+  @include box;
+  background-color: blue;
+}
+
+// [!] ERROR: 클래스 내부에 mixin이 선언되면 외부에서 사용할 수 없다.
+// 						또한 mixin을 내부에서 사용하는 것을 지양한다.
+// .profile {
+//   @include box;
+//   background-color: red;
+// }

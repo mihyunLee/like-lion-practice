@@ -1,0 +1,19 @@
+@debug not true;
+@debug not false;
+
+// true: 1
+// false: 0
+// or: 더하기
+// and: 곱
+
+// 두 조건이 모두 충족되는 경우
+$value: 32px;
+$color: red;
+
+p {
+  @if ($value >=32px and $color == red) {
+    letter-spacing: 1rem;
+  } @else {
+    letter-spacing: 0.5rem;
+  }
+}

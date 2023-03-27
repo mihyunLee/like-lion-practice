@@ -1,0 +1,32 @@
+.test1 {
+  width: 100px;
+  height: 100px;
+  color: white;
+  border: 1px solid black;
+}
+
+.test2 {
+  width: 100px;
+  height: 100px;
+  color: white;
+  background-color: red;
+  border: 1px solid black;
+}
+
+.test3 {
+  width: 100px;
+  height: 100px;
+  color: white;
+  background-color: red;
+  font-size: 32px;
+  border: 1px solid black;
+}
+
+.test4 {
+  width: 100px;
+  height: 100px;
+  color: white;
+  border: 1px solid black;
+  background-color: red;
+  font-size: 32px;
+}/*# sourceMappingURL=025_믹스인_contents.css.map */

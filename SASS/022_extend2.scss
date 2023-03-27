@@ -1,0 +1,13 @@
+// %placehoder 스타일 블럭
+// % 선택자는 css로 컴파일되지 않는다.
+%base-box {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  border-radius: 10%;
+}
+
+.box {
+  @extend %base-box;
+  border-radius: 10px solid black;
+}

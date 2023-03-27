@@ -1,0 +1,13 @@
+// extend: 사용 빈도가 낮다.
+// extend는 코드가 직관적이지 않고, mixin으로 모두 구현할 수 있기 때문
+.base-box {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  border-radius: 10%;
+}
+
+.box {
+  @extend .base-box;
+  border: 10px solid black;
+}
