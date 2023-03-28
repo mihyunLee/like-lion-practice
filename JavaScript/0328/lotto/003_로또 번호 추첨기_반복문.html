@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>로또 번호 추첨기</title>
+</head>
+
+<body>
+	<h1>로또 번호 추첨기</h1>
+	<script>
+		// [#] 반복되는 코드를 반복문 for를 사용해서 처리하기
+		/* var lotto = [];
+		lotto.push(parseInt(Math.random() * 45 + 1));
+		lotto.push(parseInt(Math.random() * 45 + 1));
+		lotto.push(parseInt(Math.random() * 45 + 1));
+		lotto.push(parseInt(Math.random() * 45 + 1));
+		lotto.push(parseInt(Math.random() * 45 + 1));
+		lotto.push(parseInt(Math.random() * 45 + 1));
+		document.write(lotto); */
+
+		var lotto = [];
+		for (var i = 0; i < 6; i++) {
+			lotto.push(parseInt(Math.random() * 45 + 1));
+		}
+		document.write(lotto);
+	</script>
+</body>
+
+</html>

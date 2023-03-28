@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>스타크래프트</title>
+	<style>
+		.background {
+			position: relative;
+			background-image: url('background.png');
+			background-size: 500px 330px;
+			width: 500px;
+			height: 330px;
+		}
+
+		#drone {
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			top: 100px;
+			left: 60px;
+		}
+
+		#bunker {
+			position: absolute;
+			width: 150px;
+			height: 150px;
+			top: 80px;
+			right: 20px;
+		}
+
+		#bullet {
+			display: none;
+			position: absolute;
+			top: 140px;
+			left: 150px;
+			width: 50px;
+			height: 30px;
+			transform: rotateY(180deg);
+			z-index: 2;
+		}
+	</style>
+</head>
+
+<body>
+	<div class='background'>
+		<img id='drone' src="drone.png" alt="drone">
+		<img id='bullet' src="bullet.png" alt="bullet">
+		<img id='bunker' src="bunker.png" alt="bunker">
+	</div>
+	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+		crossorigin="anonymous"></script>
+	<script>
+		// [#] 드론 클릭 시 총알 나타나게 하기
+		// [#] .css: 애니메이션 없이 css가 변경됨
+		$("#drone").click(function () {
+			$("#bullet").fadeIn();
+			$("#bullet").animate({ left: '+=250' });
+			$("#bullet").fadeOut();
+			$("#bullet").css({ left: "150px" });
+		})
+	</script>
+</body>
+
+</html>

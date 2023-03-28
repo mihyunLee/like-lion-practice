@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>객체(Object)</title>
+</head>
+
+<body>
+	<h1>객체(Object)</h1>
+	<script>
+		// -- 객체
+		var person = {
+			// -- 속성 (키: 값)
+			name: 'nor coding',
+			age: 25,
+
+			// -- 메소드 (키: 함수)
+			sayHello: function () {
+				console.log('hello');
+			}
+		}
+
+		console.log(person.name); // 객체의 키 값 출력
+		console.log(person.age);
+		person.sayHello(); // 객체의 메소드 실행
+	</script>
+</body>
+
+</html>
