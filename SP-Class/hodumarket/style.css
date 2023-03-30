@@ -1,0 +1,219 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+/* reset */
+body,
+h1,
+h2,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  color: inherit;
+}
+
+/* main {
+  box-shadow: inset 0 0 10px blue;
+}
+
+footer {
+  box-shadow: inset 0 0 10px red;
+} */
+
+:root {
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+}
+
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+/* layout */
+.wrapper {
+  padding: 0 320px;
+  margin: 0 auto;
+  box-shadow: inset 0 0 10px green;
+}
+
+/* style */
+/* font ==== */
+.title-large {
+  font-size: 48px;
+}
+
+.title-medium {
+  font-size: 36px;
+}
+
+/* header ==== */
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: auto;
+  padding: 31px 320px;
+  margin: 0 -320px;
+  background-color: #f2e9d8;
+}
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 30px;
+}
+
+/* button ==== */
+[class^="btn"] {
+  padding: 15px 30px;
+  background-color: #d97652;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 40px;
+}
+
+/* section */
+.section-top,
+.section-middle,
+.section-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-top {
+  width: auto;
+  padding: 0 320px;
+  margin: 0 -320px;
+  gap: 128px;
+  background-color: #f2e9d8;
+}
+
+.section-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.section-top .section-contents {
+  gap: 40px;
+}
+
+.section-middle {
+  gap: 110px;
+  margin-top: 80px;
+  margin-bottom: 120px;
+}
+
+.section-middle .section-img img {
+  box-shadow: 10px 10px 30px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+}
+
+.section-middle .section-contents {
+  gap: 30px;
+}
+
+.section-bottom {
+  flex-direction: column;
+  text-align: center;
+}
+
+.section-bottom .title-large {
+  color: #d97652;
+}
+
+.section-bottom .title-desc {
+  margin-top: 40px;
+  margin-bottom: 88px;
+}
+
+.section-bottom .title-desc strong {
+  color: #d97652;
+}
+
+.thumbnails {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 72px;
+}
+
+.thumbnails img {
+  box-shadow: 10px 10px 30px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+
+  width: 378px;
+  height: 378px;
+  object-fit: cover;
+}
+
+.section-details {
+  display: flex;
+  align-items: center;
+  gap: 52px;
+  text-align: left;
+  margin: 90px 0;
+}
+
+/* main ==== */
+main::after {
+  content: "";
+  display: block;
+  width: auto;
+  margin: 0 -320px;
+  height: 340px;
+  background: url(./images/img_5.png) 0 center / cover;
+}
+
+/* footer ==== */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-fin {
+  width: 226px;
+  height: 70px;
+  padding: 45px 0;
+}
+
+.direct-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
