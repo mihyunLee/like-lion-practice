@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>변수 - var, let, const</title>
+</head>
+
+<body>
+
+	<script>
+		// 변수(변할 수 있는 값) : var, let
+		// 상수(하지 않는 값, DOM 요소, ...) : const 
+
+		// var는 키워드를 생략할 수 있으나(엄격모드 애러) 생략하시면 안되고, 모던자바스크립트에서는 var 키워드를 권하지 않는다.
+
+		// let과 const는 블록-레벨 선언
+		// const 의 경우에는 반드시 초기화 해야함
+		// 변수 선언은 되도록 const로 하는 것을 추천 (값 변경 X, 가독성 높임)
+
+		// scope, 유효범위
+		if (true) {
+			let x = 100;
+			console.log(x);
+		}
+
+		// ERROR: x is not defined
+		// console.log(x); 
+
+		let s = 0
+		for (let i = 0; i < 11; i++) {
+			s = s + i
+		}
+		console.log(s)
+
+		let ss = 0
+		for (let i = 0; i < 11; i++) {
+			ss = ss + i
+			const sss = ss / 10
+			console.log(sss)
+		}
+
+		// let ss = 0
+		// for (let i = 0; i < 11; i++) {
+		//     ss = ss + i
+		//     const sss = ss / 10
+		// }
+
+		// ERROR: sss is not defined
+		// console.log(sss)
+
+		const k = 10;
+		k = 12; // error, const는 값을 재할당 할 수 없다.
+
+		const kk = [];
+		kk.push(10) // kk는 배열 자체를 가리키고 있고, push 한다고 가리키는 배열이 바뀌는 것이 아니기 때문에 에러가 나지 않는다.
+	</script>
+
+</body>
+
+</html>
