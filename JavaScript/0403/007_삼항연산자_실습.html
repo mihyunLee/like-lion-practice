@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>삼항연산자 실습</title>
+</head>
+
+<body>
+	<script>
+		// 통장에 10,000원을 초과해서 있으면 '부자'
+		// 통장에 10,000원 이하 있으면 '부를 바라는 자'
+		const money = 15000;
+		const message = money > 10000 ? '부자' : '부를 바라는자';
+		console.log(message); // 부자
+
+		// 통장에 100,000원을 초과해서 있으면 '초부자'
+		// 통장에 10,000원을 초과해서 있으면 '부자'
+		// 통장에 10,000원 이하 있으면 '부를 바라는 자'
+		const money2 = 100000;
+		const message2 = money > 100000 ? '초부자' : (money > 10000 ? '부자' : '부를 바라는자');
+		console.log(message2); // 부자 
+	</script>
+</body>
+
+</html>

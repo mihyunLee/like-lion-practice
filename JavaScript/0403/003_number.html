@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>number</title>
+</head>
+
+<body>
+	<script>
+		///////// parseInt
+		let n1 = 10000;
+		let n2 = 10.123123;
+		let n3 = 31;
+		let n4 = 1001;
+		let n5 = 1111;
+
+		let s1 = '100000000000';
+		let s2 = '100,000,000,000';
+
+		console.log(parseInt(n1)); // 10000
+		console.log(parseInt(n2)); // 10
+		console.log(parseInt(n3)); // 31
+		console.log(parseInt(n4, 2)); // 9, 2진법 숫자 -> 10진법 숫자
+		console.log(parseInt(n4, 8)); // 513, 8진법 숫자 -> 10진법 숫자
+		console.log(parseInt(n4, 10)); // 1001, 10진법 숫자 -> 10진법 숫자
+
+		console.log(n2.toFixed(3)); // 10.123
+
+		/////// parseInt vs. Number
+
+		console.log(Number(true)); // 1
+		console.log(Number(false)); // 0
+
+		console.log(parseInt(true)); // NaN, boolean은 parseInt로 변환할 수 없다.
+		console.log(parseInt(false)); // NaN
+
+		///////////////
+
+		console.log(Number(" ")); // 0
+		console.log(Number("")); // 0 
+		console.log(Number("hello")); // NaN
+		console.log(Number("10 20")); // NaN
+		console.log(Number("10abc")); // NaN
+
+		console.log(parseInt(" ")); // NaN
+		console.log(parseInt("")); // NaN
+		console.log(parseInt("hello")); // NaN, 문자열이 숫자로 시작하지 않을 때 NaN
+		console.log(parseInt("10 20")); // 10, 문자열이 숫자로 시작할 경우 출력
+		console.log(parseInt("10abc")); // 10
+
+		//////////////
+
+		// console.log(Number(10 20)); // ERROR
+		console.log(Number("    10")); // 10
+		console.log(Number("10    ")); // 10
+		console.log(Number("     10    ")); // 10
+
+		console.log(parseInt("    10")); // 10
+		console.log(parseInt("10    ")); // 10
+		console.log(parseInt("     10    ")); // 10
+
+		////// Math
+
+		console.log(Math.abs(-10)); // 10, 절대값 출력
+		console.log(Math.ceil(10.7)); // 11, 올림
+		console.log(Math.floor(10.7)); // 10, 내림
+		console.log(Math.round(10.7)); // 11, 반올림
+		console.log(Math.round(10.3)); // 10, 반올림
+		console.log(Math.sqrt(4)); // 2, square root 제곱근
+		console.log(Math.PI); // 3.14, 주로 메서드보다는 3.14 그대로를 변수로 사용하긴한다.
+		console.log(Math.min(1, 3, 5, 6, 7, 23, 9));
+		console.log(Math.max(1, 3, 5, 6, 7, 23, 9));
+
+		Math.min([1, 3, 5, 7]); // 동작 안 함
+		Math.min(...[1, 3, 5, 7]); // 전개 구문을 사용해주어야함
+
+		// 1 ~ 10까지 난수 생성
+		parseInt(Math.random() * 10 + 1);
+		// (Math.random() * (최댓값 - 최솟값)) + 최솟값
+
+		Math.pow(2, 3)  // 2 ** 3, 잘 사용되지는 않음
+
+		/////// Infinity
+
+		Infinity
+		Infinity > 100 // true
+		Infinity < 100 // false
+			- Infinity
+		Infinity - Infinity // NaN, -* 중요하진 않다.
+
+		////// 부동 소수점
+		// 컴퓨터에서 10진수 연산은 정확하지 않다.
+		// 0.1 + 0.2
+		// 0.30000000000000004
+		// 0.1 * 3
+		// 0.30000000000000004
+		// 0.3 + 0.6
+		// 0.8999999999999999
+
+		// 문제가 되는 경우
+		let width = 0.3;
+		let height = 0.6;
+		if (width + height >= 0.9) {
+			console.log('실행해!');
+		}
+
+		////// BigInt
+		// JS에서 큰 숫자를 사용할 때에는 BigInt를 사용
+		// BigInt가 추가된 지는 2년 정도 밖에 되지 않았다.
+		// The proposal belongs to ECMAScript 2020, which is the 11th edition
+		// console.log(Number.MAX_SAFE_INTEGER)  // 2^53 - 1
+
+		// 서비스는 항상 최악의 상황, 악성 유저에 대비 해야함
+		// 아래처럼 정상 작동이 되지 않는 경우들이 있다.
+		2 ** 53 - 1
+		// 9007199254740991
+
+		9007199254740991 + 1
+		// 9007199254740992
+
+		9007199254740991 + 2
+		// 9007199254740992
+
+		9007199254740991 + 3
+		// 9007199254740994
+
+		9007199254740991 + 4
+		// 9007199254740996
+
+		// 제대로 나오게 하려면 n을 붙인다.
+		9007199254740991n + 1n
+		// 9007199254740992n
+
+		9007199254740991n + 2n
+		// 9007199254740993n
+
+		9007199254740991n + 3n
+		// 9007199254740994n
+
+		9007199254740991n + 4n
+		// 9007199254740995n
+
+		BigInt(9007199254740991) + BigInt(1)
+		// 9007199254740992n
+
+		BigInt(9007199254740991) + BigInt(2)
+		// 9007199254740993n
+
+		BigInt(9007199254740991) + BigInt(3)
+		// 9007199254740994n
+
+		BigInt(9007199254740991) + BigInt(4)
+		// 9007199254740995n
+
+		// cf. 참고하기
+		// BigInt(5) + 5n
+		// BigInt(5) + 5 // error
+		// BigInt(5) / 2n // 2n (소수 표현 안됨)
+		// BigInt("10") + BigInt("10") // 큰 값을 정수로 입력받을 때에는 string으로 처리해서 받아야 함
+
+		let x = 10;
+		console.log(x.toString()); // console.log로 문자열을 출력하면 따옴표가 없어진다.
+	</script>
+</body>
+
+</html>

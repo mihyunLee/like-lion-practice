@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+</head>
+
+<body>
+	<!-- 두 자바스크립트 코드는 서로 호환이 된다.
+			또한 var를 사용하여 변수를 재정의 할 경우 기본 값에 덮어씌여진다.
+			따라서 var는 위험도가 매우 높아 사용을 권장하지 않는다.
+	-->
+	<script>
+		var x = 10;
+		var y = 20;
+
+		x = x + 10;
+	</script>
+	<script>
+		var x = 100;
+		console.log(x);
+		console.log(y);
+	</script>
+</body>
+
+</html>

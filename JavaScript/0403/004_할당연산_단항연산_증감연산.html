@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+</head>
+
+<body>
+	<script>
+		// -- 할당연산
+		let x = 10;
+		x = x + 10;
+		x += 10;
+
+		// -- 단항연산
+		console.log(-(2)); // -2
+		console.log(-(-2)); // 2
+		console.log(+(-2)); // -2
+		console.log(+(+'2')); // 2
+
+		// -- 증감연산
+		let num = 3;
+		// 전위 연산자 - 선증가 후할당
+		++num; // 결과값: 4 | 1증가한 값이 연산 결과값 num은 현재 4
+		--num;
+		// 후위 연산자 - 선할당 후증가
+		num++; // 결과값: 3 | 1증가하기 전 값이 연산 결과값 num은 현재 5
+		num--;
+
+		// 실무에서는 연산자를 구분하는 것에 큰 의미가 없다.
+		for (let i = 0; i < 10; i++) {
+			console.log(i);
+		}
+
+		for (let i = 0; i < 10; ++i) {
+			console.log(i);
+		}
+	</script>
+</body>
+
+</html>
