@@ -131,13 +131,14 @@ img {
   appearance: none;
   width: 1.8em;
   height: 1.8em;
-  background: url(../images/check-box.svg) no-repeat center / 22px;
+  /* background: url("../images/css_sprites.png") -48px -10px; */
+  background: url("../images/retina.png") -52px -10px / 84px 42px; /* 스프라이트 이미지를 반으로 줄이기 */
   vertical-align: middle;
-  transition: all 0.3s;
 }
 
 .inp-login-status:checked {
-  background-image: url(../images/check-box-checked.svg);
+  /* background: url("../images/css_sprites.png") -90px -10px; */
+  background: url("../images/retina.png") -10px -10px / 84px 42px;
 }
 
 .chk-login-status {
@@ -145,7 +146,7 @@ img {
 }
 
 /* button */
-[class^="btn"] {
+[class*="btn"] {
   width: 100%;
   height: 50px;
   border-radius: 5px;
@@ -156,32 +157,53 @@ img {
   color: #fff;
 }
 
-[class^="btn-social"] {
+.btn-social {
+  padding: 15px 14px;
   border-width: 1px;
   border-style: solid;
-  background-repeat: no-repeat;
-  background-size: 28px;
-  background-position: 12px center;
 }
 
-.btn-social.google {
+[class^="icon"]::before {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: block;
+  content: "";
+  width: 22px;
+  height: 22px;
+  background-image: url("../images/css_sprites.png");
+}
+
+.icon-google.btn-social {
   border-color: #767676;
-  background-image: url(../images/icon-google.svg);
 }
 
-.btn-social.facebook {
+.icon-facebook.btn-social {
   border-color: #2d9cdb;
-  background-image: url(../images/icon-facebook.svg);
 }
 
-.btn-social.naver {
+.icon-naver.btn-social {
   border-color: #00bf18;
-  background-image: url(../images/icon-naver.svg);
 }
 
-.btn-social.kakao {
+.icon-kakao.btn-social {
   border-color: #f2c94c;
-  background-image: url(../images/icon-kakao.svg);
+}
+
+.icon-google::before {
+  background-position: -132px -10px;
+}
+
+.icon-facebook::before {
+  background-position: -276px -10px;
+}
+
+.icon-naver::before {
+  background-position: -228px -10px;
+}
+
+.icon-kakao::before {
+  background-position: -180px -10px;
 }
 
 .close {
@@ -217,6 +239,10 @@ img {
 .social-login {
   margin-top: 20px;
   color: #767676;
+}
+
+.social-login li {
+  position: relative;
 }
 
 .social-login li:not(:last-child) {
