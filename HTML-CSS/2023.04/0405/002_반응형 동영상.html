@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>반응형 동영상</title>
+	<style>
+		.basic-video {
+			width: 100%;
+			/* max-width의 경우 해당 콘텐츠가 가지고 있는 너비 이전까지만 반응형으로 동작한다. */
+			/* max-width: 100%;  */
+		}
+
+		/* iframe에 width: 100%를 줄 경우 가로는 늘어나지만 높이는 그대로이기 때문에 영상이 잘리게 된다. */
+		/* iframe {
+			width: 100%;
+		} */
+
+		.cont-video {
+			position: relative;
+			padding-top: 56.25%;
+			/* padding-top, padding-bottom 속성의 % 값은 부모 요소의 넓이에 비례한다. */
+			/* 예를 들어 부모의 넚이가 1200px 이라면 자식요소의 padding-top=50% 의 값은 600px 과 같다. */
+		}
+
+
+		.video-next-level {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		.full-screen-vid {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			height: 100%;
+			/* position: fixed의 경우 뷰포트기준이 되기 때문에 부모 컨테이너의 높이 값이 없어도 동작한다.*/
+			pointer-events: none;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- <video class="basic-video" autoplay muted controls loop src="nextlevel.mp4"></video> -->
+
+	<video class="full-screen-vid" autoplay controls muted loop src="nextlevel.mp4"></video>
+
+	<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/uLlwywAK_zY" title="YouTube video player"
+		frameborder="0"
+		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+		allowfullscreen></iframe> -->
+
+	<!-- <article class="cont-video">
+		<iframe class="video-next-level"
+			src="https://www.youtube.com/embed/4TWR90KJl84?autoplay=1&mute=1&loop=1&playlist=4TWR90KJl84&controls=1"
+			title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+	</article> -->
+</body>
+
+</html>
