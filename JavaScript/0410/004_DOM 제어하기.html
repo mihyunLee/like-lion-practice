@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<style>
+		.blue {
+			background-color: blue;
+		}
+	</style>
+</head>
+
+<body>
+	<button>HELLO!</button>
+
+	<script>
+		// ✅ 이벤트 넣기
+		// 이벤트의 타입에는 click, mouseover, mouseout, wheel 등 다양한 이벤트를 감지한다.
+		// listener 함수의 인수에는 이벤트에 대한 정보가 담겨있다.
+		// addEventListener의 두 번째 인수에는 콜백 함수를 전달한다.
+
+		const myBtn = document.querySelector("button");
+
+		myBtn.addEventListener('click', function () {
+			console.log("hello world");
+		})
+
+		// ✅ 클래스 제어
+		myBtn.addEventListener('click', function () {
+
+			// classList 객체의 add 메서드를 사용하면
+			// blue 라는 클래스의 속성 값을 추가할 수 있다.
+			myBtn.classList.add("blue");
+
+			// myBtn.classList.remove("blue");     // 클래스를 제거한다.
+			// myBtn.classList.toggle("blue");     // 클래스를 토글한다. 해당 클래스가 없으면 넣어주고, 해당 클래스가 있으면 제거한다.
+			// myBtn.classList.contains("blue");   // 해당하는 클래스가 있는지 확인한다. => 반환값은 boolean
+		})
+	</script>
+</body>
+
+</html>

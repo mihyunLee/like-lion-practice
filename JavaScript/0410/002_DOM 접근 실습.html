@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+</head>
+
+<body>
+	점심 식단
+	<article id="container">
+		<ul>
+			<li>탕수육</li>
+			<li class="item-second">유산슬</li>
+			<li>짜장면</li>
+		</ul>
+	</article>
+	저녁 식단
+	<article>
+		<ul>
+			<li class="item-second">된장국</li>
+			<li id="item-second">김치찌게</li>
+			<li>해장국</li>
+		</ul>
+	</article>
+
+	<script>
+		// 탕수육과 유산슬 선택하기
+		const element1 = document.getElementsByTagName("li")
+		const element2 = document.getElementsByClassName("item-second")
+
+		console.log(element1); // HTMLCollection: 유사 배열 객체
+		console.log(element1[0]);
+		console.log(element2[0]);
+
+		// Document 객체에 접근하는 또 다른 방법
+		const container = document.getElementById("container");
+		console.log(container.getElementsByTagName("li")[0]);
+		console.log(container.getElementsByClassName("item-second")[0]);
+
+		// Query Selector
+		// css 선택자를 사용해서 요소를 선택할 수 있다.
+		console.log(container.querySelector("li"));
+		console.log(container.querySelector(".item-second"));
+		console.log(container.querySelector("#item-second"));
+		console.log(container.querySelectorAll("li")); // NodeList
+
+		console.log(container.querySelector("li:last-child"));
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+</head>
+
+<body>
+	<ul></ul>
+	<button id="add">Make me MORE!</button>
+	<button id="remove">li 삭제하기</button>
+
+	<script>
+		// ul에 자식 요소 추가 - appendChild
+		const myBtn = document.querySelector("#add");
+		const myUl = document.querySelector("ul");
+
+		myBtn.addEventListener('click', function () {
+			for (let i = 0; i < 5; i++) {
+				const myLi = document.createElement('li');
+				const myText = document.createTextNode(i + 1);
+				myLi.appendChild(myText);
+				myUl.appendChild(myLi);
+			}
+		})
+
+		// ul의 자식 요소 삭제 - removeChild
+		const rmBtn = document.querySelector("#remove");
+		const rmLi = myUl.getElementsByTagName("li");
+
+		console.log(rmLi);
+
+		rmBtn.addEventListener("click", function () {
+			myUl.removeChild(rmLi[0]); // 실시간으로 반영되는 HTMLCollection의 특성을 이용
+		})
+
+		// 오류 상황 1) querySelector
+		// 스크립트가 처음 로딩되었을 대 myBtn의 콜백 함수는 실행되지 않은 상태.
+		// querySelector의 경우 일치하는 요소가 없다면 null을 반환한다.
+		// 따라서 현재 li 태그는 찾을 수 없기 때문에 rmLi는 null 값을 가지게 된다.
+
+		// const rmLi = myUl.querySelector("li");
+
+		// rmBtn.addEventListener("click", function () {
+		// 	console.log(rmLi); // null
+		// 	myUl.removeChild(rmLi);
+		// })
+
+
+		// 오류 상황 2) querySelectorAll의 경우도 querySelector와 동일하다.
+		// querySelctorAll의 경우 일치하는 요소가 없다면 빈 NodeList 객체를 반환한다.
+		// 그리고 NodeList는 DOM을 변경할 때는 정적 콜렉션처럼 동작한다.
+		// DOM을 변경해도(요소 추가, 삭제) 콜렉션 내용에는 영향을 주지 않아 변경사항이 업데이트 되지 않는다.
+		// 따라서 아래의 코드는 getElementsByTagName과는 다르게 동작한다.
+
+		// const rmLi = myUl.querySelectorAll("li");
+
+		// rmBtn.addEventListener("click", function () {
+		// 	console.log(rmLi); // NodeList []
+		// 	console.log(rmLi[0]); // undefined
+		// 	myUl.removeChild(rmLi[0]);
+		// })
+	</script>
+</body>
+
+</html>

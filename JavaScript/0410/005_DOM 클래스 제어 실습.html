@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<style>
+		ul {
+			padding: 0;
+		}
+
+		.canvas {
+			margin: 0 auto;
+			width: 400px;
+			height: 400px;
+			background-color: black;
+		}
+
+		.btn-list {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 10vw;
+			margin-top: 30px;
+		}
+
+		.canvas.red {
+			background-color: red;
+		}
+
+		.canvas.yellow {
+			background-color: yellow;
+		}
+
+		.canvas.green {
+			background-color: green;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="canvas"></div>
+	<ul class="btn-list">
+		<li><button type="button" class="btn-red">빨강</button></li>
+		<li><button type="button" class="btn-yellow">노랑</button></li>
+		<li><button type="button" class="btn-green">초록</button></li>
+	</ul>
+	<script>
+		// 💡 버튼을 클릭했을 때 해당 색상의 배경색을 가지게 하자!
+		const box = document.querySelector(".canvas");
+		const colorBtns = document.querySelectorAll("button");
+
+		for (let i = 0; i < colorBtn.length; i++) {
+			colorBtns[i].addEventListener('click', function () {
+				box.className = "canvas";
+				// box.classList.remove('red', 'yellow', 'green');
+				box.classList.add(colorBtns[i].className.slice(4));
+			})
+		}
+	</script>
+</body>
+
+</html>
