@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<style>
+		/* 문서 트리의 루트 요소(html)를 선택하는 가상 클래스 */
+		:root {
+			--main-bgColor: teal;
+			--main-txtColor: white;
+		}
+
+		body {
+			padding: 0;
+			margin: 0;
+			font-size: 1.5em;
+			background-color: var(--main-bgColor);
+		}
+
+		.wrapper {
+			padding: 20px;
+			text-align: center;
+			background-color: #fff;
+		}
+
+		.picker {
+			display: inline-block;
+		}
+
+		.picker+.picker {
+			margin-left: 30px;
+		}
+
+		main {
+			color: var(--main-txtColor);
+		}
+	</style>
+</head>
+
+<body>
+	<section class="wrapper">
+		<article class="picker">
+			<label for="bg">배경색 : </label>
+			<input type="color" id="bg" class="inp-picker" data-id="bgColor">
+		</article>
+
+		<article class="picker">
+			<label for="txt">글씨색 : </label>
+			<input type="color" id="txt" class="inp-picker" data-id="txtColor">
+		</article>
+	</section>
+	<main>
+		<h1>Color Picker!!</h1>
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum possimus sint, voluptatem alias facere veniam
+			doloremque voluptas optio a omnis, ullam quae! Autem eveniet animi tempora pariatur dolorum ad laboriosam!
+		</p>
+	</main>
+
+	<script>
+		// 💡 querySelector처럼 돔 탐색은 메모리 사용률이 높기 때문에 최소화해주는게 좋다.
+		// 따라서 root를 forEach 콜백 함수 내에 선언할 수 있지만,
+		// 그 밖에 선언해주는 것이 메모리 사용을 줄일 수 있다.
+		const inp = document.querySelectorAll("input");
+		const root = document.querySelector(":root");
+		// 💡 document.documentElement 는 문서의 root 요소를 반환한다.
+		// querySelector를 사용하나 documenetElement나 돔을 탐색해야하기 때문에
+		// 메모리 사용에는 큰 차이가 없다.
+		// const rootElement = document.documentElement;
+
+		inp.forEach((el) => el.addEventListener("input", function () {
+
+			const name = el.dataset.id;
+			root.style.setProperty(`--main-${name}`, el.value);
+
+		}))
+
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+</head>
+
+<body>
+	<p>hello</p>
+
+	<img id="pororo"
+		src='https://static.ebs.co.kr/images/public/lectures/2014/06/19/10/bhpImg/44deb98d-1c50-4073-9bd7-2c2c28d65f9e.jpg'>
+
+	<script>
+		const target = document.querySelector("p");
+		const myimg = document.querySelector('img');
+
+		// 💡 style 객체
+		// style 객체를 통해 설정된 스타일은 CSS inline 스타일과 동일한 가중치를 가진다.
+		// 따라서 수정의 여지가 있는 스타일에는 classList를 사용하여 클래스를 제어하는 것이 좋다.
+		const txtColor = target.style.color; // 현재 스타일 정보를 가져옵니다.
+		target.style.color = "red"; // 현재 스타일 정보를 변경합니다.
+		target.style.fontWeight = "bold"; // 현재 스타일 정보에 font-weight 속성이 없다면 추가합니다.
+		// target.style.color = null; // 현재 스타일 정보를 제거(초기화)합니다.
+
+		// 💡 Attribute 메소드
+		// getAttribute(): 요소의 특정 속성 값에 접근하여 값을 가져옴
+		// setAttribute(): 요소의 특정 속성 갑셍 접근하여 값을 수정
+		const idAttr = myimg.getAttribute('id');
+		console.log(idAttr); // pororo
+		myimg.setAttribute("src", "https://img.wendybook.com/image_detail/img159/159599_01.jpg");
+	</script>
+</body>
+
+</html>

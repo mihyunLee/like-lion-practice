@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+</head>
+
+<body>
+	<img class="terran battle-cruiser" src="battle-cruiser.png" data-ship-id="324" data-weapons="laser" data-health="400"
+		data-mana="250" data-skill="yamato-cannon" />
+
+	<script>
+		// 💡 data 속성
+		// data-* 속성을 사용하면 HTMl 요소에 추가적인 정보를 저장하여
+		// 프로그램 가능한 객체처럼 사용할 수 있게 한다.
+		// 단, data 속성의 이름에는 콜론(:)이나 영문 대문자가 듬어가서는 안된다.
+		const target = document.querySelector("img")
+		console.log(target.dataset); // DOMStringMap {shipId: '324', weapons: 'laser', health: '400', mana: '250', skill: 'yamato-cannon'}
+		console.log(target.dataset.shipId); // 324
+	</script>
+</body>
+
+</html>

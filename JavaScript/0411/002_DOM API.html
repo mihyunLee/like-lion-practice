@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+</head>
+
+<body>
+	<p></p>
+	<input type="text">
+	<button>Write Something!</button>
+
+	<script>
+		const myBtn = document.querySelector("button");
+		const myP = document.querySelector("p");
+		const myInput = document.querySelector("input");
+
+		myBtn.addEventListener('click', function () {
+			// input에 입력된 값을 p태그 안에 텍스트로 넣는다.
+
+			// textContent: 노드의 텍스트 콘텐츠를 표현한다.
+			//							컨텐츠를 단순히 텍스트로만 다룬다.
+			myP.textContent = myInput.value;
+
+			// innerHTML: innerHTML로 값을 할당할 때, 마크업으로 변환할 수 있는 문자열이
+			// 						있다면 마크업으로 만들어서 보여준다.
+			// myP.innerHTML = myInput.value;
+		});
+
+	</script>
+</body>
+
+</html>
