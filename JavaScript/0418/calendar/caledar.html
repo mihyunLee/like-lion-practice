@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Calendar</title>
+	<style>
+		#calendar {
+			display: inline-block;
+			padding: 20px;
+			background: #333;
+			text-align: center;
+			color: #fff;
+		}
+
+		#calendar table {
+			border-collapse: collapse;
+		}
+
+		caption {
+			font-size: 25px;
+			color: orange;
+			margin: 10px;
+		}
+
+		th,
+		td {
+			padding: 20px;
+			border: 1px solid #666;
+		}
+
+		th:first-child,
+		td:first-child {
+			color: red;
+		}
+
+		.prev,
+		.next {
+			color: inherit;
+			padding: 10px;
+			margin: 5px;
+			background-color: #333;
+		}
+	</style>
+</head>
+
+<body>
+	<article id="calendar">
+		<h2>나의 멋진 HTML 달력</h2>
+		<table>
+			<caption>
+				<time datetime="">
+					<span class="year"></span>년
+					<span class="month"></span>월
+				</time>
+			</caption>
+			<tr>
+				<th scope="col">일</th>
+				<th scope="col">월</th>
+				<th scope="col">화</th>
+				<th scope="col">수</th>
+				<th scope="col">목</th>
+				<th scope="col">금</th>
+				<th scope="col">토</th>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+		<button type="button" class="prev">이전달</button>
+		<button type="button" class="next">다음달</button>
+	</article>
+
+	<script>
+		function calendar(newYear, newMonth) {
+			// 1. 1일(시작하는 날)의 요일이 무엇인지 알아야 함
+			const time = new Date(newYear, newMonth - 1, 1);
+
+			// 2. 해당하는 달의 일 수가 며칠있는지 알아야 함
+			const timeLength = new Date(newYear, newMonth, 0).getDate();
+
+			let year = time.getFullYear(),
+				month = time.getMonth(),
+				date = time.getDate(),
+				day = time.getDay();
+
+			const captionYear = document.querySelector(".year");
+			const captionMonth = document.querySelector(".month");
+			const timeEl = document.querySelector("time");
+			const days = document.querySelectorAll("tr td");
+
+			for (let i = 0; i < days.length; i++) {
+				days[i].innerHTML = '&nbsp;';
+			}
+
+			// 시작하는 요일을 for문의 시작점으로 잡아준다.
+			for (let i = day; i < day + timeLength; i++) {
+				days[i].textContent = date++;
+			}
+
+			captionYear.textContent = year;
+			captionMonth.textContent = month + 1;
+			timeEl.dateTime = `${year}-0${month + 1}`;
+		}
+
+		const btns = document.querySelectorAll("button");
+		btns.forEach((item) => {
+			item.addEventListener("click", () => {
+				if (item.classList.contains("prev")) {
+					calendar(year, --month);
+				} else {
+					calendar(year, ++month);
+				}
+			})
+		})
+
+		let year = new Date().getFullYear();
+		let month = new Date().getMonth() + 1;
+		// getMonth(): 해당 달을 반환하는 것이 아니라
+		// 달의 인덱스를 반환하기 때문에 0부터 시작한다.
+		// 따라서 원하는 달을 얻기 위해서는 +1 을 해주어야 함
+
+
+		calendar(year, month);
+	</script>
+</body>
+
+</html>
