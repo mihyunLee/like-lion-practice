@@ -1,3 +1,9 @@
+:root {
+  --item-number: 7;
+  --item-width: 340px;
+  --translateZ: calc(var(--item-width) * var(--item-number) / 2 / 3.14);
+}
+
 body,
 h2 {
   margin: 0;
@@ -36,32 +42,27 @@ h2 {
 /* 반지름 공식: 원의 둘레 / 2 / 3.14 */
 /* 원의 둘레: 이미지 가로 길이 x 개수 */
 .list-item li:nth-child(1) {
-  transform: rotateY(0) translateZ(calc(340px * 7 / 2 / 3.14));
+  transform: rotateY(0) translateZ(var(--translateZ));
 }
 
 .list-item li:nth-child(2) {
-  transform: rotateY(calc(360deg / 7)) translateZ(calc(340px * 7 / 2 / 3.14));
+  transform: rotateY(calc(360deg / 7)) translateZ(var(--translateZ));
 }
 
 .list-item li:nth-child(3) {
-  transform: rotateY(calc(360deg / 7 * 2))
-    translateZ(calc(340px * 7 / 2 / 3.14));
+  transform: rotateY(calc(360deg / 7 * 2)) translateZ(var(--translateZ));
 }
 .list-item li:nth-child(4) {
-  transform: rotateY(calc(360deg / 7 * 3))
-    translateZ(calc(340px * 7 / 2 / 3.14));
+  transform: rotateY(calc(360deg / 7 * 3)) translateZ(var(--translateZ));
 }
 .list-item li:nth-child(5) {
-  transform: rotateY(calc(360deg / 7 * 4))
-    translateZ(calc(340px * 7 / 2 / 3.14));
+  transform: rotateY(calc(360deg / 7 * 4)) translateZ(var(--translateZ));
 }
 .list-item li:nth-child(6) {
-  transform: rotateY(calc(360deg / 7 * 5))
-    translateZ(calc(340px * 7 / 2 / 3.14));
+  transform: rotateY(calc(360deg / 7 * 5)) translateZ(var(--translateZ));
 }
 .list-item li:nth-child(7) {
-  transform: rotateY(calc(360deg / 7 * 6))
-    translateZ(calc(340px * 7 / 2 / 3.14));
+  transform: rotateY(calc(360deg / 7 * 6)) translateZ(var(--translateZ));
 }
 
 .list-item img {
