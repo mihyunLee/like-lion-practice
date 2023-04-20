@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<style>
+		div {
+			width: 200px;
+			height: 200px;
+			background-color: royalblue;
+			margin: 200px auto;
+			/* requestAnimationFrame()을 사용하면 애니메이션 반응 속도가 빨라서
+				transition을 사용하지 않아도 된다.
+			*/
+			/* transition: 0.3s ease-in-out; */
+		}
+	</style>
+</head>
+
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	const box = document.getElementById("box");
+	let pos = 0;
+	// 사용자가 어떤 키를 눌렀는지 정보를 저장하는 객체
+	let keys = {};
+
+	// 사용자가 키를 눌렀을 때 실행
+	function move(event) {
+		keys[event.key] = true;
+		console.log(keys);
+	}
+
+	// 사용자가 키에서 손을 땔 때 실행
+	function stop(event) {
+		keys[event.key] = false;
+		console.log(keys);
+
+	}
+
+	document.addEventListener("keydown", move);
+	document.addEventListener("keyup", stop);
+
+	// requestAnimationFrame을 쓰지 않으면 움직임의 반응이 느리다.
+	// function move(e) {
+	// 	if (e.keyCode === 37) {
+	// 		pos -= 10;
+	// 		box.style.transform = `translateX(${pos}px)`;
+	// 	} else if (e.keyCode === 39) {
+	// 		pos += 10;
+	// 		box.style.transform = `translateX(${pos}px)`;
+	// 	}
+	// }
+
+	function play() {
+		if (keys.ArrowRight) {
+			pos += 10;
+			box.style.transform = `translateX(${pos}px)`;
+		}
+
+		if (keys.ArrowLeft) {
+			pos -= 10;
+			box.style.transform = `translateX(${pos}px)`;
+		}
+
+		requestAnimationFrame(play);
+	}
+
+
+	play();
+
+	// 	--- requestAnimationFrame 테스트
+	// function play() {
+	// 	console.log('play');
+
+	// 	requestAnimationFrame(play);
+
+	// }
+
+	// play();
+
+	// play()가 호출되어 함수 내부를 해석하여 콘솔에 출력되고,
+	// requestAnimationFrame()에 의해 다시 한번 호출되면서
+	// 재귀 함수처럼 함수가 무한 반복되어 실행된다.
+	// => 따라서 감시가 필요함!
+</script>
+
+</html>
