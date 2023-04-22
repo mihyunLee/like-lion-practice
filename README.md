@@ -17,8 +17,8 @@
 - Box Model | 박스 꾸미기
 - Flex | 로그인 UI 만들기
 - Transition | 햄버거 메뉴 만들기
-- Media Query | 두근두근 다이어리
-- Media Query | 벤딩머신 웹 페이지
-- Semantic Markup | 정글 시네마
-- Semantic Markup | 로그인 페이지 만들기
+- Media Query | [두근두근 다이어리](https://mihyunlee.github.io/like-lion-practice/HTML-CSS/diary/main.html)
+- Media Query | [벤딩머신 웹 페이지](mihyunlee.github.io/vending-machine/)
+- Semantic Markup | [정글 시네마](https://mihyunlee.github.io/like-lion-practice/HTML-CSS/jungle-cinema/)
+- Semantic Markup | [로그인 페이지 만들기](https://mihyunlee.github.io/like-lion-practice/HTML-CSS/2023.03/0322/login-page/)
 - CSS Layout | position, flexbox를 이용한 웹 페이지 만들기  
