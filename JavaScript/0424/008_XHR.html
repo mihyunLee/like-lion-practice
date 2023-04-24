@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+</head>
+
+<body>
+	<p>hello lions!!</p>
+	<button type="button">통신버튼</button>
+
+	<script>
+		// const btn = document.querySelector("button");
+		// btn.addEventListener("click", xhrRequest);
+		let result;
+
+		function xhrRequest() {
+			const xhr = new XMLHttpRequest(); // XHR 인스턴스 생성
+			xhr.open("GET", "./message.txt"); // 요청 초기화
+			xhr.onreadystatechange = () => {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					// const result = xhr.responseText;
+					result = xhr.responseText;
+					console.log(result); // 안녕하세요 멋사 여러분!!!
+					document.querySelector("p").textContent = result;
+				}
+			}
+			xhr.send();
+		}
+
+		xhrRequest();
+		console.log(result); // undefined
+
+		// 콘솔 출력 결과
+		// undefined
+		// 안녕하세요 멋사 여러분 !!!
+
+		// Ajax는 비동기적으로 실행된다.
+		// Ajax중 하나인 XHR 객체는 비동기적으로 실행된다.
+		// 따라서 xhrRequest 함수가 비동기적으로 실행되고 있기 때문에
+		// 35번째 줄에 콘솔 함수가 먼저 실행되고, 서버와 통신이 끝난 후에
+		// xhrRequest 함수 실행이 완료된다.
+		// 만약 동기적으로 실행된다면 안녕하세요 멋사 여러분 !!! 이 두번 출력됐을 것
+	</script>
+</body>
+
+</html>
