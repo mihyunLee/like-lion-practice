@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+</head>
+
+<body>
+	<script>
+		"use strict";
+
+		class UserStorage {
+
+			// 유저가 등록되었는지 확인
+			searchUser(userName, password) {
+
+				return new Promise((resolve, reject) => {
+					const xhr = new XMLHttpRequest();
+					xhr.open("GET", "users.json");
+					xhr.onreadystatechange = () => {
+						if (xhr.readyState === 4 && xhr.status === 200) {
+							const result = JSON.parse(xhr.responseText).user.find((item) => {
+								return item.userName === userName && item.password === password
+							});
+
+
+							if (result) {
+								// onSuccess(userName);
+								// resolve 메소드가 실행될 떄 전달된 인자는 then 메소드 콜백함수의 인자로 전달된다.
+								resolve(userName);
+							} else {
+								// onError(new Error("user not found"));
+								reject(new Error("user not found"));
+							}
+						}
+					}
+					xhr.send();
+				})
+
+			}
+
+			// 등록된 유저에 따른 인사말을 출력
+			sayHi(user) {
+
+				return new Promise((resolve, reject) => {
+					const xhr = new XMLHttpRequest();
+					xhr.open("GET", "greetings.json");
+					xhr.onreadystatechange = () => {
+						if (xhr.readyState === 4 && xhr.status === 200) {
+							const result = JSON.parse(xhr.responseText).greetings.find((item) => {
+								return item.userName === user;
+							})
+
+							if (result) {
+								// onSuccess({
+								// 	name: result.userName,
+								// 	greetings: result.greetings
+								// });
+								resolve({ name: result.userName, greetings: result.greetings });
+							} else {
+								// onError(new Error("no greetings message"));
+								reject(new Error("no greetings message"));
+							}
+						}
+					}
+					xhr.send();
+				})
+
+			}
+		}
+
+		const userStorage = new UserStorage();
+
+		const userName = prompt("이름을 입력하세요");
+		const password = prompt("비밀번호를 입력하세요");
+
+		userStorage.searchUser(userName, password)
+			// then은 Promise 객체(인스턴스)에서 resolve 메소드가 실행될 때 자동으로 호출된다.
+			// then의 인자인 result는 Promise 객체에서 resolve 메소드의 인자에서 온다.
+			.then((result) => {
+				return userStorage.sayHi(result);
+				// sayHi는 Promise 객체를 반환하기 때문에
+				// then을 연결해서 사용하는 'Promise chaining'이 가능하다.
+			})
+			.then((result) => {
+				alert(`당신에게 인사합니다! ${result.name}님 ${result.greetings}`)
+			})
+			.catch((errorMsg) => {
+				console.log(new Error(errorMsg));
+			})
+
+		// Promise도 비동기로 처리되기 때문에 then과 catch로 프라미스 체이닝이 되어야한다.
+		// 하지만 XHR에서 발생했던 콜백 지옥을 어느정도 해소할 수 있다.
+
+		// userStorage.searchUser(
+		// 	userName,
+		// 	password,
+		// 	(name) => {
+		// 		userStorage.sayHi(
+		// 			name,
+		// 			(result) => {
+		// 				alert(`당신에게 인사합니다! ${result.name}님 ${result.greetings}`);
+		// 			},
+		// 			(error) => {
+		// 				console.log(error);
+		// 			}
+		// 		)
+		// 	},
+		// 	(error) => {
+		// 		console.log(error);
+		// 	}
+		// );
+	</script>
+</body>
+
+</html>

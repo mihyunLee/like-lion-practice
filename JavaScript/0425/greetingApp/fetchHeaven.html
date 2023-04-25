@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+</head>
+
+<body>
+	<script>
+		"use strict";
+
+		class UserStorage {
+
+			// 유저가 등록되었는지 확인
+			searchUser(userName, password) {
+
+				return new Promise((resolve, reject) => {
+					fetch("users.json")
+						.then((data) => {
+							return data.json();
+							// Response 객체가 반환되기 때문에 json() 메소드를 사용해야 한다.
+							// json() 메소드는 자바스크립트 객체로 변환이 가능한
+							// promise 객체를 반환하기 때문에 then 메소드를 체이닝하여 더 사용할 수 있다.
+						}).then((res) => {
+							const result = res.user.find((item) => {
+								return item.userName === userName && item.password === password
+							});
+
+
+							if (result) {
+								resolve(userName);
+							} else {
+								reject(new Error("user not found"));
+							}
+						})
+				})
+
+			}
+
+			// 등록된 유저에 따른 인사말을 출력
+			sayHi(user) {
+
+				return new Promise((resolve, reject) => {
+
+					fetch('greetings.json')
+						.then((data) => {
+							return data.json();
+						}).then((res) => {
+							const result = res.greetings.find((item) => {
+								return item.userName === user;
+							})
+
+							if (result) {
+								resolve({ name: result.userName, greetings: result.greetings });
+							} else {
+								reject(new Error("no greetings message"));
+							}
+						});
+				})
+
+			}
+		}
+
+		const userStorage = new UserStorage();
+
+		const userName = prompt("이름을 입력하세요");
+		const password = prompt("비밀번호를 입력하세요");
+
+		userStorage.searchUser(userName, password);
+
+		userStorage.searchUser(userName, password)
+			.then((result) => {
+				return userStorage.sayHi(result);
+			})
+			.then((result) => {
+				alert(`당신에게 인사합니다! ${result.name}님 ${result.greetings}`)
+			})
+			.catch((errorMsg) => {
+				console.log(new Error(errorMsg));
+			})
+	</script>
+</body>
+
+</html>
