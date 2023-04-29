@@ -1,17 +1,21 @@
 * {
   box-sizing: border-box;
+  font-family: "SUIT", sans-serif;
 }
 
 body {
-  color: #fff;
+  color: #000;
+  background: url(https://i.pinimg.com/564x/8f/ec/e9/8fece984d9565103b0341e59c136c44c.jpg)
+    no-repeat top 5% center / 30%;
 }
 
 #mainForm {
   width: 460px;
   margin: 0 auto;
   padding: 20px;
+  margin-top: 250px;
   border-radius: 10px;
-  background-color: #ff8787;
+  border: 2px solid black;
 }
 
 #mainForm fieldset {
@@ -29,6 +33,7 @@ body {
 
 #mainForm label {
   display: block;
+  margin-bottom: 10px;
 }
 
 #mainForm input {
@@ -44,7 +49,7 @@ body {
 
 /* 가상클래스 valid. input에 입력받은 값이 유효하다면을 의미합니다. */
 #mainForm input:valid {
-  background-color: #e5ebb2;
+  background-color: #ebebeb;
 }
 
 #mainForm button {
@@ -52,7 +57,8 @@ body {
   float: right;
   padding: 10px;
   margin-left: 10px;
-  background-color: #f8c4b4;
+  background-color: #000;
+  color: #fff;
   cursor: pointer;
   border-radius: 5px;
   border: none;
@@ -60,4 +66,18 @@ body {
 
 #mainForm progress {
   width: 100%;
+  height: 14px;
+  appearance: none;
+}
+
+#mainForm progress::-webkit-progress-bar {
+  /* progressbar의 배경이 되는 요소 */
+  border-radius: 20px;
+  background-color: #ebebeb;
+}
+
+#mainForm progress::-webkit-progress-value {
+  /* progress의 진행 bar가 되는 요소 */
+  border-radius: 20px;
+  background-color: #ff7f50;
 }

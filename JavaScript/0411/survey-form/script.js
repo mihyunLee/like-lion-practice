@@ -21,6 +21,10 @@ surveyForm.addEventListener("click", (e) => {
   if (e.target.type === "reset") {
     progressBar.value = 0;
   }
+
+  if (e.target.type === "submit" && progressBar.value === 100) {
+    alert("설문에 참여해주셔서 감사합니다🎉");
+  }
 });
 
 // * 강사님 코드
