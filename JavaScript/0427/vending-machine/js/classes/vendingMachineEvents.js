@@ -14,20 +14,22 @@ class VendingMachineEvents {
     this.myMoney = myInfo.querySelector(".bg-box strong"); // 소지금
 
     const getInfo = document.querySelector(".section3");
-    this.getList = getInfo.querySelector(".getList");
+    this.getList = getInfo.querySelector(".get-list");
     this.txtTotal = getInfo.querySelector(".total-price");
   }
 
   staggedItemGenerator(target) {
-    const staggedItem = document.createElement("li");
-    staggedItem.innerHTML = `
+    const stagedItem = document.createElement("li");
+    stagedItem.dataset.item = target.dataset.item;
+    stagedItem.dataset.price = target.dataset.price;
+    stagedItem.innerHTML = `
 			<img src="./images/${target.dataset.img}" alt="">
 			${target.dataset.item}
 			<strong>1
 				<span class="a11y-hidden">개</span>
 			</strong>
 		`;
-    this.stagedList.append(staggedItem);
+    this.stagedList.append(stagedItem);
   }
 
   bindEvent() {
@@ -106,20 +108,103 @@ class VendingMachineEvents {
         const balanceVal = parseInt(
           this.balance.textContent.replaceAll(",", "")
         );
-        const targetElPrice = parseInt(event.currentTarget.dataset.price);
+        const targetEl = event.currentTarget;
+        const targetElPrice = parseInt(targetEl.dataset.price);
+        const staggedListItem = this.stagedList.querySelectorAll("li");
+        let isStaged = false; // 이미 선택되었는지 여부
 
         if (balanceVal >= targetElPrice) {
           this.balance.textContent =
             new Intl.NumberFormat().format(balanceVal - targetElPrice) + "원";
 
-          //장바구니 콜라 생성
-          this.staggedItemGenerator(event.currentTarget);
+          for (const item of staggedListItem) {
+            // 클릭한 콜라의 이름과 장바구니에 있던 콜라의 이름이 같은지 비교
+            if (targetEl.dataset.item === item.dataset.item) {
+              // 이미 장바구니에 콜라가 있다면 카운트 +1
+              item.querySelector("strong").firstChild.textContent =
+                parseInt(item.querySelector("strong").firstChild.textContent) +
+                1;
 
-          // for (const itme of this.stagedList) {
-          // }
+              isStaged = true;
+              break;
+            }
+          }
+
+          // 선택한 콜라가 처음 선택되었을 경우에만 장바구니에 콜라를 생성한다.
+          if (!isStaged) {
+            //장바구니 콜라 생성
+            this.staggedItemGenerator(targetEl);
+          }
+
+          // 자판기의 콜라 개수 차감
+          targetEl.dataset.count--;
+
+          // 자판기의 콜라 개수가 없다면
+          if (!parseInt(targetEl.dataset.count)) {
+            targetEl.insertAdjacentHTML(
+              "beforeEnd",
+              `
+								<strong class="soldout">
+									<span>품절</span>
+								</strong>
+							`
+            );
+
+            targetEl.disabled = "disabled";
+          }
         } else {
           alert("입금한 금액이 부족합니다.");
         }
+      });
+    });
+
+    /**
+     * 4. 장바구니의 콜라 획득하기
+     * 1) 장바구니에 있는 음료수 목록이 획득한 음료 목록으로 이동한다.
+     * 2) 획득한 음료의 모든 금액을 합하여 총 금액을 업데이트한다.
+     */
+    this.btnGet.addEventListener("click", () => {
+      // this.getList.innerHTML = this.stagedList.innerHTML; // innerHTML을 교체하기 때문에 업데이트가 되지 않는다.
+      // querySelector 대신 children을 사용하면 HTMLCollection을 반환하기 때문에 실시간 업데이트가 되어 원치않은 동작 결과를 발생시킨다.
+      const itemStagedList = this.stagedList.querySelectorAll("li");
+      const itemGetList = this.getList.querySelectorAll("li");
+      let totalPrice = 0;
+
+      for (const itemStaged of itemStagedList) {
+        let isGet = false; // 이미 획득한 음료인지 여부
+        for (const itemGet of itemGetList) {
+          // 장바구니의 콜라가 이미 획득한 목록에 있다면
+          if (itemStaged.dataset.item === itemGet.dataset.item) {
+            // itemGet.dataset.count += itemStaged.dataset.count;
+            itemGet.querySelector("strong").firstChild.textContent =
+              parseInt(itemGet.querySelector("strong").firstChild.textContent) +
+              parseInt(
+                itemStaged.querySelector("strong").firstChild.textContent
+              );
+
+            isGet = true;
+            break;
+          }
+        }
+
+        // 새로 선택된 음료라면 장바구니에 있는 음료를 획득한 목록에 추가
+        if (!isGet) {
+          this.getList.append(itemStaged);
+        }
+      }
+
+      // 장바구니 목록 초기화
+      this.stagedList.innerHTML = null;
+
+      // 획득한 음료 리스트를 순회하면서 총금액을 계산
+      this.getList.querySelectorAll("li").forEach((itemGet) => {
+        totalPrice +=
+          parseInt(itemGet.dataset.price) *
+          parseInt(itemGet.querySelector("strong").firstChild.textContent);
+
+        this.txtTotal.textContent = `총금액: ${new Intl.NumberFormat().format(
+          totalPrice
+        )} 원`;
       });
     });
   }
