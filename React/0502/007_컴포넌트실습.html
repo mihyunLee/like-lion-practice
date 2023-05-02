@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+	<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+	<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+	<title>위니브 샵</title>
+</head>
+
+<body>
+
+	<div id="root"></div>
+
+	<script type="text/babel">
+		const Header = () => {
+			return (
+				<p>컴포넌트화 실습</p>
+			);
+		}
+
+		const Card = ({ goods }) => {
+			return (
+				<li>
+					<h2>{goods.productName}</h2>
+					<p>{goods.price}</p>
+				</li>
+			)
+
+		}
+
+		const App = () => {
+			const URL = "http://test.api.weniv.co.kr";
+			const [goods, setGoods] = React.useState([]);
+
+			React.useEffect(() => {
+				const fetchData = async () => {
+					try {
+						const data = await fetch(`${URL}/mall`).then((res) => res.json());
+						setGoods(data);
+					} catch (e) {
+						throw new Error("Failed to fetch data");
+					}
+				};
+
+				fetchData();
+			}, []);
+
+			return (
+				<div>
+					<Header />
+					{goods.map((item) => (
+						<Card key={item.id} goods={item} />
+					))}
+				</div>
+			);
+		};
+
+		const container = document.getElementById("root");
+		const root = ReactDOM.createRoot(container);
+
+		root.render(<App />);
+	</script>
+</body>
+
+</html>
