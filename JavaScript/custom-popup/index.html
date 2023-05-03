@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>레이어 팝업</title>
+	<link rel="stylesheet" href="./popup.css">
+</head>
+
+<body>
+	<div class="bg-video">
+		<video class="bg-video-content" autoplay muted loop frameborder="0">
+			<source src="./video.mp4" type="video/mp4" />
+		</video>
+	</div>
+
+	<main>
+		<h1>우리 지금, 떠나볼까요?</h1>
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia voluptas sunt neque expedita quaerat. Dicta,
+			rerum
+			id optio odio voluptatem tempore ipsum, dolorem laboriosam saepe debitis officia amet, quibusdam animi.</p>
+		<button class="btn-open" type="button">어디로 가볼까요?</button>
+		<article class="popup">
+			<h2 class="a11y-hidden">전체 메뉴</h2>
+			<ul class="menu">
+				<li><a href="#">일본</a></li>
+				<li><a href="#">미국</a></li>
+				<li><a href="#">스위스</a></li>
+				<li><a href="#">태국</a></li>
+			</ul>
+			<button class="btn-close" type="button">
+				<img src="./close.png" alt="닫기">
+			</button>
+		</article>
+		<div class="dim"></div>
+
+
+
+	</main>
+
+	<script src="./popup.js"></script>
+</body>
+
+</html>

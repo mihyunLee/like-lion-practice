@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>butterfly</title>
+	<style>
+		body {
+			margin: 0;
+			height: 5000px;
+			background: linear-gradient(to bottom, black, royalblue);
+		}
+
+		svg {
+			width: 100%;
+			position: fixed;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		path {
+			fill: none;
+			stroke: white;
+			stroke-width: 3px;
+			stroke-linecap: round;
+			stroke-linejoin: round;
+			/* stroke-dasharray: 1637 1637;
+			stroke-dashoffset: 400; */
+		}
+	</style>
+	</style>
+</head>
+
+<body>
+	<svg width="500" height="385" viewBox="0 0 500 385" xmlns="http://www.w3.org/2000/svg">
+		<path id="path"
+			d="M0.5 322.5C19.8333 350.667 78.7 401.1 159.5 377.5C260.5 348 250.5 285 247 280C250.5 273.5 216.5 237.5 192.5 254C184.333 265.333 183.2 286 244 278C304.8 270 346.667 234.667 360 218C371.333 212.5 393.3 183.2 390.5 110C387.167 89.5 374.1 50.8 348.5 60C346.833 61.5 343.4 68.4 343 84C342.333 87.5 337.5 96.7 323.5 105.5C319.5 109.5 312.7 120.6 317.5 133C323.5 148.5 337 166 340 169C342.4 171.4 344.667 167 345.5 164.5C343.5 160 334.1 150.2 312.5 147C298.167 145.5 266.2 150.7 253 183.5C248.333 196.167 250.7 222.5 297.5 226.5C317 226.5 360.7 222.2 379.5 205C383.167 202.833 390.5 196.3 390.5 187.5C390.5 176.5 375 201.5 367.5 223C364.167 232 356.3 248.7 351.5 243.5C348.88 240.667 346.212 233.3 356.5 226.5C366.788 219.7 383.453 190.333 390.5 176.5C397.167 165.5 411.5 143.6 415.5 144C416.833 143.833 419.1 144.3 417.5 147.5C415.9 150.7 407.833 151.833 404 152C400.286 152.155 394.158 148.746 397.143 134.491C397.631 132.159 398.574 129.948 399.793 127.901C408.321 113.573 424.421 91.5126 430 87C437.587 80.8637 450.79 70.8436 460.13 64.8893C466.169 61.0398 473.064 57.5117 478.106 52.4262C483.504 46.9814 489.243 40.3484 492.634 34.2883C496.308 27.7243 496.189 19.7001 497.492 12.2921C498.413 7.06189 499.276 2.0692 499.5 0.5" />
+	</svg>
+
+
+	<script>
+		// path 선택하기
+		const path = document.querySelector("#path");
+
+		// path의 전체 길이 구하기
+		const pathLength = path.getTotalLength();
+
+		// console.log(path, pathLength);
+
+		// stroke-dasharray: 1637 1637 형태로 css 설정
+		// stroke-dashoffset: 1637 형태로 css 설정
+		path.style.strokeDasharray = pathLength + " " + pathLength;
+		path.style.strokeDashoffset = pathLength;
+
+		function scrollHandler() {
+			const scrollTop = document.documentElement.scrollTop;
+			const scrollHeight = document.documentElement.scrollHeight;
+			const clientHeight = document.documentElement.clientHeight;
+
+			// 전체 스크롤 높이에서 요소의 높이를 빼준 곳이 scrollTop이 이동할 수 있는 높이!
+			// scrollPercentage: 아래의 식으로 인해 0 ~ 1 사이의 값을 갖게 된다.
+			const scrollPercentage = scrollTop / (scrollHeight - clientHeight);
+
+			const drawLength = pathLength * scrollPercentage;
+
+			path.style.strokeDashoffset = pathLength - drawLength;
+		}
+
+		window.addEventListener("scroll", scrollHandler);
+	</script>
+</body>
+
+</html>
