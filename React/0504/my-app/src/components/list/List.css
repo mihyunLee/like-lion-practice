@@ -1,0 +1,17 @@
+.localList {
+  list-style: none;
+  padding: 0;
+}
+
+.localItem {
+  border: 1px solid black;
+}
+
+.localItem:not(:last-child) {
+  border-bottom: 0;
+}
+
+.visited {
+  background: royalblue;
+  color: white;
+}
