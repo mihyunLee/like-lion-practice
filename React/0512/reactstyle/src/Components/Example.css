@@ -1,0 +1,10 @@
+/* GlobalStyle의 가중치가 더 높다 */
+span {
+  color: blue;
+  font-size: 12px;
+}
+
+/* CSS 우선 순위에 의해 GlobalStyle 보다 하단의 스타일이 적용된다. */
+.span-test {
+  color: blue;
+}
