@@ -17,9 +17,17 @@ const initialState = {
 const goodsReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD":
-      return { ...state, stock: state.stock - 1, goods: state.goods + 1 };
+      if (state.stock < 1) {
+        return { ...state, stock: 0, goods: state.goods };
+      } else {
+        return { ...state, stock: state.stock - 1, goods: state.goods + 1 };
+      }
     case "SUBSTRACT":
-      return { ...state, stock: state.stock + 1, goods: state.goods - 1 };
+      if (state.goods < 1) {
+        return { ...state, stock: state.stock, goods: 0 };
+      } else {
+        return { ...state, stock: state.stock + 1, goods: state.goods - 1 };
+      }
     default:
       return state;
   }

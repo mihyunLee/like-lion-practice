@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addNumber, substractNumber } from "../modules/goodsCounter";
 
@@ -15,23 +15,6 @@ export default function GoodsCounter() {
   const onAddNumber = () => dispatch(addNumber());
   const onSubstractNumber = () => dispatch(substractNumber());
 
-  const minusRef = useRef();
-  const plusRef = useRef();
-
-  useEffect(() => {
-    if (goods === 0) {
-      minusRef.current.disabled = true;
-    } else {
-      minusRef.current.disabled = false;
-    }
-
-    if (stock === 0) {
-      plusRef.current.disabled = true;
-    } else {
-      plusRef.current.disabled = false;
-    }
-  }, [goods, stock]);
-
   return (
     <div>
       <h2>딥러닝 개발자 무릎 담요</h2>
@@ -39,11 +22,11 @@ export default function GoodsCounter() {
         <strong>17,500</strong>원
       </span>
       <div>
-        <button type="button" ref={minusRef} onClick={onSubstractNumber}>
+        <button type="button" disabled={goods < 1} onClick={onSubstractNumber}>
           MINUS
         </button>
         <span>{goods}</span>
-        <button type="button" ref={plusRef} onClick={onAddNumber}>
+        <button type="button" disabled={stock < 1} onClick={onAddNumber}>
           PLUS
         </button>
       </div>
