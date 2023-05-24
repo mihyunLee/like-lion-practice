@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+</head>
+
+<body>
+	<script>
+		class UltraArray {
+			constructor() {
+				this.array = [];
+			}
+
+			push(element) {
+				this.array = [...this.array, ...arguments];
+				return this.array.length;
+			}
+
+			pop() {
+				const temp = this.array[this.array.length - 1];
+				this.array.length = this.array.length - 1;
+
+				return temp;
+			}
+		}
+
+		const myArray = new UltraArray();
+		myArray.push(10, 11);
+		myArray.push(13);
+		console.log(myArray.array);  // [10, 11, 13]
+		myArray.pop();
+		console.log(myArray.array); // [10, 11]
+
+		// ------ 강사님 풀이
+		class UltraArray2 {
+			constructor() {
+				this.data = {};
+				this.length = 0;
+			}
+
+			push(item) {
+				this.data[this.length] = item; // {0:item, 1:item, 2:item}
+				this.length += 1;
+
+				return this.length;
+			}
+
+			pop() {
+				const lastItem = this.data[this.length - 1];
+				delete this.data[this.length - 1];
+				this.length -= 1;
+
+				return lastItem;
+			}
+
+			// 인덱스 숫자로 속성을 제거하는 메서드
+			deleteWithIndex(index) {
+				const removedItem = this.data[index];
+				this.changeOrderOfItems(index);
+				delete this.data[index];
+				this.length -= 1;
+				return removedItem;
+			}
+
+			// 인덱스를 정리하고 property를 제거하는 메서드
+			changeOrderOfItems(index) {
+				// -- 풀이
+				// 받아오는 인덱스부터 기존 인덱스 값이 변경하기 때문에
+				// 받아오는 인덱스를 기준으로 시작해 정리를 한다.
+				for (let i = index; i < this.length; i++) {
+					this.data[i] = this.data[i + 1];
+				}
+
+				// 메서드의 기능과 이름으로 보아 삭제하는 것은
+				// deleteWithIndex에서 해주는 것이 더 좋을것 같은 개인적인 생각..?
+				// delete this.data[index];
+				// this.length -= 1;
+
+
+				// -- 풀었던 방법
+				// tempObj라는 별도의 공간이 존재해야하고, for문을 처음부터 요소의 길이까지 돌아야한다.
+				// 또한 Object.valeus로 객체를 순회하고 있기 때문에
+				// 시간 복잡도와 공간 복잡도의 면에서 그닥 좋은 코드는 아닌 것 같다.
+
+				// delete this.data[index];
+				// this.length -= 1;
+
+				// let tempObj = {};
+
+				// for (let i = 0; i < this.length; i++) {
+				// 	tempObj[i] = Object.values(data)[i];
+				// }
+
+				// this.data = tempObj;
+			}
+		}
+
+		const myArray2 = new UltraArray2();
+		myArray2.pop();
+		myArray2.push(10);
+	</script>
+</body>
+
+</html>

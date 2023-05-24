@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+</head>
+
+<body>
+	<script>
+		const testArray = [1, 2, 3, 4];
+		testArray.push(5); // O(1), 기존 배열에 영향을 미치지 않고 맨 뒤에 요소를 추가한다.
+
+		testArray.pop(); // O(1), 기존 배열에 영향을 미치지 않고 맨 뒤에 요소를 제거한다.
+
+		// 새로운 요소가 추가될 때마다 기존의 배열을 뒤로 하나씩 밀어야하기 떄문에 데이터 길이가 길어지면 시간 복잡성도 증가한다.
+		testArray.unshift(0); // O(N) 
+
+		// 맨 뒤에 값을 추가하거나 삭제하면 O(1), 맨 앞에 값을 추가하면 O(n)
+		// 중간에 값을 삽입하는 경우 해당 인덱스 뒤의 요소들의 인덱스가 하나씩 밀리기 때문에 O(N)을 갖는다.
+		testArray.splice(2, 1, 6); // 최선: O(1), 최악:O(n)
+
+	</script>
+</body>
+
+</html>

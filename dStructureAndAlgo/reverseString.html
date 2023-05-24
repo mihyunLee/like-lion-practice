@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+</head>
+
+<body>
+	<script>
+		// 안녕하세요 => 요세하녕안
+		function reverseStr(str) {
+			if (str.length < 2 || typeof str !== 'string') {
+				return new Error('길이가 2이상인 문자열을 입력해주세요.');
+			}
+			return str.split("").reverse().join("");
+		}
+
+		function reverseStr2(str) {
+			let temp = '';
+			for (let i = 0; i < str.length; i++) {
+				temp = str[i] + temp;
+			}
+
+			return temp;
+		}
+
+		reverseStr("안녕하세요")
+		reverseStr2("안녕하세요")
+	</script>
+</body>
+
+</html>
