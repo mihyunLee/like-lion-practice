@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+</head>
+
+<body>
+	<script>
+		class SuperHash {
+			constructor(size) {
+				this.data = new Array(size);
+				// [[['cat':'is cute'],['rabbit':'is cute'],['rat':'is cute']], [['dog':'is cool']], [['pig':'is smart']]]
+			}
+			// 해쉬함수 hello
+			generateRandomHash(key) {
+				let hash = 0;
+				for (let i = 0; i < key.length; i++) {
+					// 0 + 10 * 0
+					// 나머지 연산자는 일정한 숫자의 범위 안으로 값을 제한
+					// 나누는 값보다 작은 값이 나오게 되기 때문
+					hash = (hash + key.charCodeAt(i) * i) % this.data.length;
+				}
+				return hash
+			}
+
+			// 값을 추가하는 함수 : insertion
+			set(key, value) {
+				// 값을 넣을 위치를 해쉬함수를 통해서 설정
+				const address = this.generateRandomHash(key);
+
+				// 기존 주소에 데이터가 없을 경우
+				if (!this.data[address]) {
+					this.data[address] = [];
+					// this.data[address] = [key, value];
+					this.data[address].push([key, value]);
+
+					// 기존 주소에 데이터가 있을 경우
+					// 유한한 공간에 데이터가 저장되기 때문에 하나의 주소에 여러 값이 저장될 수 있다.
+				} else {
+					for (let i = 0; i < this.data[address].length; i++) {
+						// 같은 키를 사용하는 데이터가 존재할 경우 덮어씌운다.
+						/** 해쉬 테이블 예시 
+						 * [
+						 * 	[
+						 * 		['cat':'is cute'],['rabbit':'is cute'],['rat':'is cute']
+						 * 	],
+						 *  [['dog':'is cool']],
+						 *  [['pig':'is smart']]
+						 * ]
+						*/
+						if (this.data[address][i][0] === key) {
+							this.data[address][i][1] = value;
+							return value;
+						}
+					}
+					// 같은 키를 사용하는 데이터가 없을 경우 list에 데이터를 추가한다.
+					this.data[address].push([key, value]);
+					return value;
+				}
+			}
+
+			// 값을 가져오는 함수 : search
+			get(key) {
+				const address = this.generateRandomHash(key);
+				const targetElement = this.data[address];
+
+				if (targetElement) {
+					for (let i = 0; i < targetElement.length; i++) {
+						if (targetElement[i][0] === key) {
+							return targetElement[i][1];
+						}
+					}
+				}
+				return undefined;
+			}
+
+			// 모든 키값을 배열로 반환
+			keys() {
+				const keyArray = [];
+
+				// 해쉬테이블 안의 모든 데이터를 순회
+				for (let i = 0; i < this.data.length; i++) {
+					// 해쉬테이블은 순서가 보장되어 있지 않기 때문에 
+					// 순회 중 undefined일 경우가 존재한다.
+					if (this.data[i]) {
+						// link list가 존재한다면
+						if (this.data[i].length > 1) {
+							for (let j = 0; j < this.data[i].length; j++) {
+								keyArray.push(this.data[i][j][0])
+							}
+						}
+						// link list가 존재하지 않다면
+						else {
+							keyArray.push(this.data[i][0][0]);
+						}
+					}
+				}
+				return keyArray;
+			}
+		}
+
+		const myHash = new SuperHash(4);
+		myHash.set('cat', 'is cute');
+		myHash.set('cat', 'is cutie');
+		myHash.set('rabbit', 'is cute');
+		myHash.set('rat', 'is cute');
+		myHash.get('cat');
+		myHash.keys();
+
+		// 정리
+		// 해쉬테이블은 데이터를 검색하거나 추가할때 보통 빠른속도가 보장됩니다. 단, 조건은 데이터 공간이 넉넉하거나 link list를 탐색하는 알고리즘이 빠르다는 전제하에
+		// 단점은 데이터가 저장되는 순서가 보장되지 않으며 key 탐색의 경우 속도가 느립니다.
+		// 때문에 object를 순환하는데 사용되는 for in 문이 우리가 작성한 객체의 프로퍼티를 만들어진 순서대로 순환하지 못하는 이유이기도 합니다.
+		// https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/for...in
+	</script>
+</body>
+
+</html>

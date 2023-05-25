@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+</head>
+
+<body>
+	<script>
+		/**
+		 * 배열이 하나 주어졌을 때 배열 안에서 반복되는 원소 중 가장 앞에 있는 원소의 값을 반환하는 함수를 만드시오.
+		 * 예시 배열: [3, 2, 4, 5, 2, 1, 0, 3]
+		*/
+		function repeatedFirstEl(arr) {
+			if (arr.length === new Set(arr).size) {
+				return new Error('반복되는 원소가 없습니다.');
+			}
+
+			for (let i = 0; i < arr.length; i++) {
+				if (arr.indexOf(arr[i]) !== i) {
+					return arr[i];
+				}
+			}
+		}
+
+		function advancedRepeatedFirstEl(arr) {
+			const useHash = {};
+
+			for (let i = 0; i < arr.length; i++) {
+				if (useHash[arr[i]]) {
+					return arr[i]
+				} else {
+					// 해쉬테이블의 키로 arr의 원소를 차례로 등록
+					useHash[arr[i]] = i;
+				}
+			}
+		}
+
+		function advancedRepeatedFirstEl2(arr) {
+			const makeSet = new Set();
+
+			for (let i = 0; i < arr.length; i++) {
+				if (makeSet.has(arr[i])) {
+					return arr[i];
+				} else {
+					makeSet.add(arr[i]);
+				}
+			}
+			return undefined;
+		}
+
+		repeatedFirstEl([3, 2, 4, 5, 2, 1, 0, 3]);
+	</script>
+</body>
+
+</html>
