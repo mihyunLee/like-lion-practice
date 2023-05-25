@@ -35,8 +35,6 @@
 				// 기존 주소에 데이터가 없을 경우
 				if (!this.data[address]) {
 					this.data[address] = [];
-					// this.data[address] = [key, value];
-					this.data[address].push([key, value]);
 
 					// 기존 주소에 데이터가 있을 경우
 					// 유한한 공간에 데이터가 저장되기 때문에 하나의 주소에 여러 값이 저장될 수 있다.
@@ -58,9 +56,11 @@
 						}
 					}
 					// 같은 키를 사용하는 데이터가 없을 경우 list에 데이터를 추가한다.
-					this.data[address].push([key, value]);
-					return value;
+					// this.data[address].push([key, value]);
+					// return value;
 				}
+				this.data[address].push([key, value]);
+				return value;
 			}
 
 			// 값을 가져오는 함수 : search
@@ -103,13 +103,13 @@
 			}
 		}
 
-		const myHash = new SuperHash(4);
-		myHash.set('cat', 'is cute');
-		myHash.set('cat', 'is cutie');
-		myHash.set('rabbit', 'is cute');
-		myHash.set('rat', 'is cute');
-		myHash.get('cat');
-		myHash.keys();
+		// const myHash = new SuperHash(4);
+		// myHash.set('cat', 'is cute');
+		// myHash.set('cat', 'is cutie');
+		// myHash.set('rabbit', 'is cute');
+		// myHash.set('rat', 'is cute');
+		// myHash.get('cat');
+		// myHash.keys();
 
 		// 정리
 		// 해쉬테이블은 데이터를 검색하거나 추가할때 보통 빠른속도가 보장됩니다. 단, 조건은 데이터 공간이 넉넉하거나 link list를 탐색하는 알고리즘이 빠르다는 전제하에
